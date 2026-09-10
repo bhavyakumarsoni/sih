@@ -51,7 +51,8 @@ fun BackHeader(title: String, subtitle: String, onBack: () -> Unit, modifier: Mo
 fun DashboardHeader(
     watershedName: String,
     watershedSub: String,
-    gpsOn: Boolean,
+    gpsStatus: String,
+    gpsActive: Boolean,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -71,10 +72,10 @@ fun DashboardHeader(
                 Column(
                     modifier = Modifier
                         .size(8.dp)
-                        .background(if (gpsOn) GWColors.GpsOnDot else GWColors.Ink500, CircleShape),
+                        .background(if (gpsActive) GWColors.GpsOnDot else GWColors.Ink500, CircleShape),
                 ) {}
                 Text(
-                    if (gpsOn) "GPS ON" else "GPS OFF",
+                    gpsStatus,
                     style = GWType.dataMonoMedium.copy(fontSize = 11.sp),
                     color = GWColors.GreenTextOnDark,
                 )

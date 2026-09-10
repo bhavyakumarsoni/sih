@@ -31,6 +31,7 @@ import com.geowatershed.app.data.GeoWatershedViewModel
 import com.geowatershed.app.data.model.PhotoSet
 import com.geowatershed.app.ui.components.AddPhotoButton
 import com.geowatershed.app.ui.components.BackHeader
+import com.geowatershed.app.ui.components.MissingPhotoSlot
 import com.geowatershed.app.ui.components.PhotoSlotCard
 import com.geowatershed.app.ui.components.PrimaryCtaButton
 import com.geowatershed.app.ui.components.QuickCameraCaptureOverlay
@@ -83,29 +84,63 @@ fun MonitoringScreen(
                     },
                     count = if (ready) "$total PHOTOS · MIN MET" else "$total / 4 PHOTOS",
                 )
+                // Evidence reads as matched pairs, not two unrelated stacks —
+                // the comparison IS the proof of outcome, so the same row must
+                // hold the same viewpoint before and after.
                 Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                    Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                    Box(modifier = Modifier.weight(1f)) {
                         PhotoColumnLabel(text = "BEFORE", color = GWColors.Ink600, dotColor = GWColors.Ink500)
-                        beforePhotos.forEach { PhotoSlotCard(it) }
-                        AddPhotoButton(
-                            label = "＋ Add Photo",
-                            forSet = PhotoSet.Before,
-                            onClick = {
-                                if (cameraPermission.granted) pendingAddSet = PhotoSet.Before else cameraPermission.request()
-                            },
-                        )
                     }
-                    Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                    Box(modifier = Modifier.weight(1f)) {
                         PhotoColumnLabel(text = "AFTER", color = GWColors.Green700, dotColor = GWColors.Green700)
-                        afterPhotos.forEach { PhotoSlotCard(it) }
-                        AddPhotoButton(
-                            label = "＋ Add Photo",
-                            forSet = PhotoSet.After,
-                            onClick = {
-                                if (cameraPermission.granted) pendingAddSet = PhotoSet.After else cameraPermission.request()
-                            },
-                        )
                     }
+                }
+
+                val pairCount = maxOf(beforePhotos.size, afterPhotos.size)
+                if (pairCount == 0) {
+                    Text(
+                        "No evidence captured yet. Add a BEFORE photo now and a matching AFTER photo from the same viewpoint once work is done.",
+                        style = GWType.bodySmall.copy(fontSize = 13.sp, lineHeight = 18.sp),
+                        color = GWColors.Ink600,
+                    )
+                }
+                (0 until pairCount).forEach { index ->
+                    Column(verticalArrangement = Arrangement.spacedBy(7.dp)) {
+                        Text(
+                            "PAIR ${index + 1} OF $pairCount",
+                            style = GWType.labelSmall,
+                            color = GWColors.Ink400,
+                        )
+                        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                            Box(modifier = Modifier.weight(1f)) {
+                                val photo = beforePhotos.getOrNull(index)
+                                if (photo != null) PhotoSlotCard(photo) else MissingPhotoSlot(PhotoSet.Before)
+                            }
+                            Box(modifier = Modifier.weight(1f)) {
+                                val photo = afterPhotos.getOrNull(index)
+                                if (photo != null) PhotoSlotCard(photo) else MissingPhotoSlot(PhotoSet.After)
+                            }
+                        }
+                    }
+                }
+
+                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                    AddPhotoButton(
+                        label = "＋ BEFORE",
+                        forSet = PhotoSet.Before,
+                        onClick = {
+                            if (cameraPermission.granted) pendingAddSet = PhotoSet.Before else cameraPermission.request()
+                        },
+                        modifier = Modifier.weight(1f),
+                    )
+                    AddPhotoButton(
+                        label = "＋ AFTER",
+                        forSet = PhotoSet.After,
+                        onClick = {
+                            if (cameraPermission.granted) pendingAddSet = PhotoSet.After else cameraPermission.request()
+                        },
+                        modifier = Modifier.weight(1f),
+                    )
                 }
                 PrimaryCtaButton(
                     label = if (submitted) "✓ Submitted for Verification" else "Submit for Verification",

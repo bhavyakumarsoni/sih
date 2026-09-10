@@ -16,4 +16,13 @@ data class CaptureEntity(
     val accuracyMeters: Float?,
     val photoPath: String?,
     val priorityScore: Int,
+
+    // --- Experimental AI assist. Kept beside the capture, never folded into
+    // it: none of these fields feed priorityScore, and aiStatus stays
+    // Suggested until a human confirms or rejects. ---
+    val aiStatus: String = "NotRequested",
+    val aiSuggestedType: String? = null,
+    val aiCertainty: String? = null,
+    val aiRationale: String? = null,
+    val aiDecidedAt: Long? = null,
 )

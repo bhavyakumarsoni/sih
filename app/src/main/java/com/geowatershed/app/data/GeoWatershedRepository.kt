@@ -4,6 +4,7 @@ import com.geowatershed.app.data.db.CaptureEntity
 import com.geowatershed.app.data.db.GeoWatershedDatabase
 import com.geowatershed.app.data.db.InterventionEntity
 import com.geowatershed.app.data.db.PhotoEvidenceEntity
+import com.geowatershed.app.data.model.AiStatus
 import com.geowatershed.app.data.model.InterventionStage
 import com.geowatershed.app.data.model.ObservationType
 import com.geowatershed.app.data.model.PhotoSet
@@ -18,6 +19,61 @@ class GeoWatershedRepository(private val db: GeoWatershedDatabase) {
         db.photoEvidenceDao().observeForIntervention(id)
 
     suspend fun getCapture(id: Long): CaptureEntity? = db.captureDao().getById(id)
+    fun observeCapture(id: Long): Flow<CaptureEntity?> = db.captureDao().observeById(id)
+
+    // ---- Experimental AI assist ----
+
+    fun observeAiQueueCount(): Flow<Int> = db.captureDao().observeQueuedForAi()
+
+    suspend fun capturesQueuedForAi(): List<CaptureEntity> =
+        db.captureDao().byAiStatus(AiStatus.Queued.name)
+
+    suspend fun markAiStatus(capture: CaptureEntity, status: AiStatus) {
+        db.captureDao().update(capture.copy(aiStatus = status.name))
+    }
+
+    /** Records a suggestion. Deliberately does not touch priorityScore or observationType. */
+    suspend fun recordAiSuggestion(
+        capture: CaptureEntity,
+        suggestedType: String,
+        certainty: String,
+        rationale: String,
+    ) {
+        db.captureDao().update(
+            capture.copy(
+                aiStatus = AiStatus.Suggested.name,
+                aiSuggestedType = suggestedType,
+                aiCertainty = certainty,
+                aiRationale = rationale,
+            ),
+        )
+    }
+
+    /**
+     * A human accepted the suggestion, so the capture's observation type is
+     * updated — by their decision, not by the model's. The priority score is
+     * still not recomputed from it: AI does not move a site up a queue.
+     */
+    suspend fun confirmAiSuggestion(capture: CaptureEntity) {
+        val suggested = capture.aiSuggestedType ?: return
+        db.captureDao().update(
+            capture.copy(
+                observationType = suggested,
+                aiStatus = AiStatus.Confirmed.name,
+                aiDecidedAt = System.currentTimeMillis(),
+            ),
+        )
+    }
+
+    /** A human disagreed. The suggestion is retained for audit, never applied. */
+    suspend fun rejectAiSuggestion(capture: CaptureEntity) {
+        db.captureDao().update(
+            capture.copy(
+                aiStatus = AiStatus.Rejected.name,
+                aiDecidedAt = System.currentTimeMillis(),
+            ),
+        )
+    }
 
     suspend fun createCapture(
         observationType: ObservationType,
@@ -26,6 +82,7 @@ class GeoWatershedRepository(private val db: GeoWatershedDatabase) {
         longitude: Double?,
         accuracyMeters: Float?,
         photoPath: String?,
+        queueForAi: Boolean,
     ): Long {
         val siteCode = "SITE-" + (200 + db.captureDao().count())
         val capture = CaptureEntity(
@@ -38,6 +95,7 @@ class GeoWatershedRepository(private val db: GeoWatershedDatabase) {
             accuracyMeters = accuracyMeters,
             photoPath = photoPath,
             priorityScore = SiteAnalysisCalculator.scoreFor(observationType),
+            aiStatus = if (photoPath != null && queueForAi) AiStatus.Queued.name else AiStatus.NotRequested.name,
         )
         return db.captureDao().insert(capture)
     }

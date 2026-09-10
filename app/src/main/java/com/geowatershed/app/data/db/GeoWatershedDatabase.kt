@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 
 @Database(
     entities = [CaptureEntity::class, InterventionEntity::class, PhotoEvidenceEntity::class],
-    version = 2,
+    version = 3,
     exportSchema = false,
 )
 abstract class GeoWatershedDatabase : RoomDatabase() {

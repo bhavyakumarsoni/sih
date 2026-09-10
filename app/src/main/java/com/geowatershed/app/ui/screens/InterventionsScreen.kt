@@ -35,6 +35,7 @@ import com.geowatershed.app.data.model.InterventionStage
 import com.geowatershed.app.ui.components.BackHeader
 import com.geowatershed.app.ui.components.InterventionCard
 import com.geowatershed.app.ui.theme.GWColors
+import com.geowatershed.app.ui.theme.GWType
 import com.geowatershed.app.ui.theme.PlexMono
 
 private enum class InterventionFilter(val label: String) {
@@ -74,6 +75,13 @@ fun InterventionsScreen(
             selected = filter,
             onSelect = { filter = it },
         )
+        Text(
+            "You can propose work and record before/after evidence here. Approving work and " +
+                "moving it through the pipeline is done by an officer in Governance Mode.",
+            style = GWType.bodySmall.copy(fontSize = 13.sp, lineHeight = 18.sp),
+            color = GWColors.Ink600,
+            modifier = Modifier.padding(horizontal = 18.dp).padding(top = 14.dp),
+        )
         if (visible.isEmpty()) {
             Text(
                 "No interventions in this filter yet.",
@@ -89,8 +97,12 @@ fun InterventionsScreen(
             items(visible, key = { it.id }) { iv ->
                 InterventionCard(
                     intervention = iv,
-                    onAdvance = { viewModel.advanceIntervention(iv) },
+                    // Field Mode never advances a stage. Approving work and
+                    // declaring it complete are officer decisions, and this
+                    // surface has no login to record who made them.
+                    onAdvance = {},
                     onMonitoring = { onOpenMonitoring(iv) },
+                    canAdvanceStage = false,
                 )
             }
         }

@@ -13,6 +13,7 @@ import com.geowatershed.app.data.db.CaptureEntity
 import com.geowatershed.app.data.db.GeoWatershedDatabase
 import com.geowatershed.app.data.db.InterventionEntity
 import com.geowatershed.app.data.db.PhotoEvidenceEntity
+import com.geowatershed.app.data.model.AiStatus
 import com.geowatershed.app.data.model.ObservationType
 import com.geowatershed.app.data.model.PhotoSet
 import kotlinx.coroutines.Dispatchers
@@ -40,9 +41,13 @@ class GeoWatershedViewModel(application: Application) : AndroidViewModel(applica
 
     private val repository = GeoWatershedRepository.getInstance(GeoWatershedDatabase.getInstance(application))
     private val locationProvider = LocationProvider(application)
+    val aiSettings = AiSettings(application)
 
     init {
-        viewModelScope.launch { repository.seedIfEmpty() }
+        viewModelScope.launch {
+            repository.seedIfEmpty()
+            processAiQueue()
+        }
     }
 
     // ---- Watershed identity: derived from the device's real location, not
@@ -181,6 +186,7 @@ class GeoWatershedViewModel(application: Application) : AndroidViewModel(applica
             longitude = gpsFix?.longitude,
             accuracyMeters = gpsFix?.accuracyMeters,
             photoPath = capturedPhotoPath,
+            queueForAi = aiSettings.isConfigured,
         )
         selectedObservation = ObservationType.SoilErosion
         description = ""
@@ -190,6 +196,100 @@ class GeoWatershedViewModel(application: Application) : AndroidViewModel(applica
     }
 
     suspend fun getCapture(id: Long): CaptureEntity? = repository.getCapture(id)
+
+    fun captureFlow(id: Long): Flow<CaptureEntity?> = repository.observeCapture(id)
+
+    // ---- Experimental AI assist ------------------------------------------
+    // Suggestions are advisory only. Nothing here writes priorityScore, and
+    // nothing here advances an intervention. A suggestion sits at Suggested
+    // until confirmAiSuggestion or rejectAiSuggestion is called by a person.
+
+    val aiQueueCount: StateFlow<Int> = repository.observeAiQueueCount()
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), 0)
+
+    var aiBusy by mutableStateOf(false)
+        private set
+
+    var aiMessage by mutableStateOf<String?>(null)
+        private set
+
+    fun clearAiMessage() {
+        aiMessage = null
+    }
+
+    /** Puts a capture in the queue. Safe with no network — that is the point of a queue. */
+    fun queueForAi(capture: CaptureEntity) {
+        viewModelScope.launch {
+            repository.markAiStatus(capture, AiStatus.Queued)
+            processAiQueue()
+        }
+    }
+
+    /**
+     * Drains the queue if, and only if, there is a key and a validated
+     * network. Otherwise it leaves everything queued and says why — captures
+     * are never silently dropped or marked failed for being offline.
+     */
+    fun processAiQueue() {
+        if (aiBusy) return
+        viewModelScope.launch {
+            val key = aiSettings.apiKey
+            if (key == null) {
+                aiMessage = "No API key set. Add one on the AI Assist settings screen."
+                return@launch
+            }
+            if (!AiClassifier.hasNetwork(getApplication())) {
+                aiMessage = "Offline — captures stay queued and will be classified when network returns."
+                return@launch
+            }
+            val queued = repository.capturesQueuedForAi()
+            if (queued.isEmpty()) return@launch
+
+            aiBusy = true
+            var failures = 0
+            queued.forEach { capture ->
+                val path = capture.photoPath
+                if (path == null) {
+                    repository.markAiStatus(capture, AiStatus.NotRequested)
+                    return@forEach
+                }
+                repository.markAiStatus(capture, AiStatus.Running)
+                val result = AiClassifier.classify(path, key, aiSettings.model)
+                result.fold(
+                    onSuccess = { suggestion ->
+                        repository.recordAiSuggestion(
+                            capture = capture,
+                            suggestedType = suggestion.observationType.name,
+                            certainty = suggestion.certainty.name,
+                            rationale = suggestion.rationale,
+                        )
+                    },
+                    onFailure = { error ->
+                        failures++
+                        aiMessage = error.message ?: "Classification failed."
+                        repository.markAiStatus(capture, AiStatus.Failed)
+                    },
+                )
+            }
+            aiBusy = false
+            if (failures == 0) aiMessage = null
+        }
+    }
+
+    fun confirmAiSuggestion(capture: CaptureEntity) {
+        viewModelScope.launch { repository.confirmAiSuggestion(capture) }
+    }
+
+    fun rejectAiSuggestion(capture: CaptureEntity) {
+        viewModelScope.launch { repository.rejectAiSuggestion(capture) }
+    }
+
+    fun retryAi(capture: CaptureEntity) {
+        viewModelScope.launch {
+            repository.markAiStatus(capture, AiStatus.Queued)
+            processAiQueue()
+        }
+    }
 
     fun advanceIntervention(intervention: InterventionEntity) {
         viewModelScope.launch { repository.advanceIntervention(intervention) }

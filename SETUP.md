@@ -1,126 +1,218 @@
-# GeoWatershed — Setup Guide (V1 scaffold)
+# GeoWatershed — Setup Guide
 
-## What's in this build
+Companion to `README.md`. That file says what the app *is*; this one gets it
+running on your machine.
 
-The **core demo loop** end to end, on synthetic/mock GIS data:
-
-```
-Dashboard → Capture (camera + real GPS) → Site Analysis (priority score,
-completeness %, unavailable-parameter flags, rule-based recommendation)
-→ Create Intervention → Before/After Monitoring
-```
-
-What's real:
-- Live camera capture (CameraX) and live device GPS (fused location) for field images.
-- A real Room (SQLite) database — data persists across app restarts, fully offline.
-- The priority scoring engine and rule-based recommendation engine run for real,
-  against synthetic GIS values (see below).
-- The "missing ≠ zero" behavior is real and demoable: a small zone in the demo
-  watershed deliberately has no GIS coverage, so capturing a photo there will show
-  `UNAVAILABLE` on some indicators and a completeness % under 100.
-
-What's mocked (intentionally, per our scoping conversation):
-- All GIS layers (DEM/slope, drainage, land-use, soil) are synthetic values
-  generated per-coordinate, not a real dataset. Swapping in a real DEM/shapefile
-  later only requires replacing `MockGisRepository.lookup()` — nothing else in
-  the app needs to change, since the rest of the pipeline just consumes whatever
-  that function returns.
-- No AI/image classification (kept out of V1 per the "AI is optional, not
-  mandatory" principle in your docs).
-- No map rendering yet (Screen 3 "GIS Map" isn't built — see Next Steps).
+> **Status of this document.** Every step below has been re-derived from the
+> current source, not copied forward from an earlier version of this guide.
+> The build steps (§1–§3) are **verified** — `./gradlew assembleDebug` really
+> does succeed. The first-run walkthrough (§4) is **derived from the code and
+> not yet confirmed on a device**. Expected values are stated precisely so
+> that the first person to run it can check them; if what you see disagrees,
+> the app is wrong or this file is, and either way it needs correcting.
 
 ---
 
-## 1. Install Android Studio
+## 1. Prerequisites
 
-1. Download Android Studio from https://developer.android.com/studio
-2. Install it (Windows/Mac/Linux all supported) and run it once — it will prompt
-   you to install the Android SDK, platform tools, and an emulator image. Accept
-   the defaults.
-3. During setup, make sure **Android SDK Platform 34** and **Android SDK
-   Build-Tools** are checked (Studio usually selects these automatically).
+- **Android Studio** Iguana or later. On first run, accept the SDK setup
+  defaults and make sure **Android SDK Platform 34** and **Android SDK
+  Build-Tools** are installed.
+- **JDK 17** — Android Studio's bundled JBR is fine. The build sets
+  `sourceCompatibility`/`targetCompatibility` to 17 and `jvmTarget = "17"`.
+- Roughly 2 GB free for Gradle caches on a first sync.
 
-## 2. Open the project
+`local.properties` in the repo root points `sdk.dir` at the SDK. It is
+machine-specific and should not be committed; if your SDK lives elsewhere,
+edit that line.
 
-1. Unzip the `GeoWatershed` folder you received.
-2. Open Android Studio → **File → Open** → select the unzipped `GeoWatershed` folder.
-3. Let Gradle sync (bottom status bar). First sync can take a few minutes — it's
-   downloading dependencies (Compose, Room, CameraX, etc.).
-4. If Studio prompts to "Upgrade Gradle Plugin" or similar, you can accept —
-   the versions pinned in `build.gradle.kts` are current as of this scaffold but
-   Studio may suggest newer patch versions, which is fine.
+---
+
+## 2. Open and build
+
+```
+git clone https://github.com/bhavyakumarsoni/sih.git
+cd sih
+./gradlew assembleDebug
+```
+
+Or open the repository root in Android Studio and let Gradle sync. The first
+sync pulls Compose, Room, CameraX, osmdroid and play-services-location and
+can take several minutes; subsequent builds are around 15 seconds.
+
+**Expected result:** `BUILD SUCCESSFUL`, and a debug APK at
+`app/build/outputs/apk/debug/app-debug.apk` (~13 MB).
+
+**Expected warnings:** exactly three, all
+`'PreferenceManager' is deprecated` in `PriorityMap.kt`. That is osmdroid's
+documented init path. Ignore them.
+
+If Android Studio offers to upgrade the Android Gradle Plugin, **decline.**
+The versions in `build.gradle.kts` are pinned deliberately and version churn
+before a deadline is a risk, not a cleanup.
+
+---
 
 ## 3. Run it
 
-**Fastest: on a real Android phone** (recommended — camera + GPS work properly on hardware, poorly on emulators):
-1. On your phone: Settings → About Phone → tap "Build Number" 7 times to enable Developer Options.
-2. Settings → Developer Options → enable "USB Debugging".
-3. Connect the phone via USB. Accept the "Allow USB debugging" prompt on the phone.
-4. In Android Studio, select your phone from the device dropdown (top toolbar) and click **Run ▶**.
+### On a real Android phone — strongly preferred
 
-**Alternative: emulator**
-1. Tools → Device Manager → Create Device → pick a Pixel profile → download a system image (API 34) → Finish.
-2. Select the emulator from the device dropdown and click **Run ▶**.
-3. Camera on emulator shows a synthetic test pattern (fine for demoing the flow, not for real photos).
-   For GPS, use the emulator's "Extended Controls" (`...` icon) → Location, to set a fake coordinate —
-   set it near `19.8745, 73.4513` to land inside the demo watershed's covered zone.
+Camera and GPS are the two things this app actually rides on, and both are
+poor on emulators.
 
-## 4. First-run walkthrough (mirrors your 10-step SIH demo scenario)
+1. On the phone: Settings → About Phone → tap **Build Number** seven times.
+2. Settings → Developer Options → enable **USB Debugging**.
+3. Connect by USB, accept the "Allow USB debugging" prompt.
+4. `./gradlew installDebug`, or pick the phone in Android Studio's device
+   dropdown and hit **Run ▶**.
 
-1. Launch the app → Dashboard (stats start at 0).
-2. Tap **Capture Field Image** → grant Camera + Location permissions when prompted.
-3. Wait for "GPS Status: Acquired ✓" (on a real phone, may take a few seconds outdoors;
-   indoors GPS can be slow/unreliable — step outside or near a window if it hangs).
-4. Tap **Take Photo**.
-5. Select an observation type (e.g. "Soil Erosion"), optionally add a description.
-6. Tap **Save & Analyze** → you land on the Site Analysis screen.
-7. You'll see: priority score, HIGH/MEDIUM/LOW classification, a data-completeness bar,
-   each site indicator (or "UNAVAILABLE" if that GIS layer didn't cover the point),
-   and a recommended intervention with reasons.
-8. Tap **Create Intervention** → lands on the Monitoring screen for that intervention.
-9. Tap **Add BEFORE Photo**, take a photo. Later, tap **Add AFTER Photo** to simulate
-   post-intervention monitoring.
-10. Back out to Dashboard — stats (Images Captured, High Priority Sites, etc.) update live.
+### On an emulator
 
-**To demo the "missing data" behavior deliberately:** capture a photo roughly
-0.02–0.03° south-west of `19.8745, 73.4513` (e.g. try `19.85, 73.43`) — that
-range has no synthetic GIS coverage by design, so the Analysis screen will show
-`UNAVAILABLE` for several indicators and completeness under 100%, exactly as
-described in your "Missing ≠ Zero" principle.
+1. Tools → Device Manager → Create Device → a Pixel profile → an API 34
+   system image.
+2. Run ▶.
+3. The emulator camera shows a synthetic test pattern — fine for walking the
+   flow, useless for real photos.
+4. **Set a location or GPS will never resolve.** Extended Controls (`...`) →
+   Location → set something near the seeded demo site, `13.13624, 78.13291`
+   (Chinnahalli, Kolar Taluk), and click Send.
+
+Without a simulated location the GPS card correctly settles on
+`WAITING FOR FIX — TAP TO RETRY`. That is not a bug.
 
 ---
 
-## 5. Project structure
+## 4. First-run walkthrough
 
-```
-app/src/main/java/com/geowatershed/app/
-├── data/
-│   ├── db/            Room entities, DAOs, database
-│   ├── mock/           MockGisRepository — swap this out for real GIS later
-│   └── repository/     GeoWatershedRepository — single source of truth for the UI
-├── engine/
-│   └── PriorityScoreEngine.kt   Scoring + rule-based recommendation logic
-├── ui/
-│   ├── screens/         One package per screen (dashboard, capture, analysis,
-│   │                    intervention, monitoring)
-│   ├── nav/              Navigation graph + a lightweight ViewModel factory
-│   └── theme/            Compose theme/colors
-├── MainActivity.kt        NavHost wiring
-└── GeoWatershedApp.kt      Application class holding the repository singleton
-```
+Expected values are computed from `GeoWatershedRepository.seedIfEmpty()` and
+the screen code. Treat any mismatch as a finding.
 
-## 6. Suggested next build priorities (matching your MVP phases)
+**1. Launch → Entry screen.** The app does *not* open on the Dashboard. It
+opens on `EntryScreen`, which immediately requests location permission.
+Expect:
 
-Given the core loop above is stable, in priority order:
-1. **GIS Map screen** (Screen 3) — even a simple marker map (e.g. osmdroid or
-   Google Maps Compose) showing captured field-image points would close the
-   biggest visible gap versus the proposal doc.
-2. **Existing image import with EXIF GPS extraction** (section 8 of the proposal) —
-   lets you seed the demo with more than just live-captured photos before showtime.
-3. Polish pass: replace the mock launcher icon situation (currently none —
-   Android will use a default), add a splash screen, tidy empty states.
+- A heading that starts as "Locating your watershed…" and, once a fix and
+  reverse geocode land, becomes a real place name. With no fix it becomes
+  "Location unavailable"; with a fix but no geocoder result, "Unnamed
+  watershed". All three are correct behaviour — none of them is a fabricated
+  place name.
+- An **ATTENTION REQUIRED TODAY** card reading "1 site is HIGH priority —
+  action overdue" (the seeded `SITE-0142`, score 78).
+- Two mode cards: **Field Mode** (no login) and **Governance Mode**.
 
-Deliberately **not** next: buffer/neighborhood GIS analysis, data-vintage UI,
-cloud sync, AI classification — all correctly scoped as V1.5+/future in your
-docs, and should stay that way unless V1's core loop is rock-solid on a real
-device first.
+> If this screen is empty or the app dies on launch, Room seeding is the
+> first place to look — start there before anything else.
+
+**2. Field Mode → Dashboard.** Expect exactly these four stats:
+
+| Stat | Expected |
+|---|---|
+| IMAGES CAPTURED | 1 |
+| HIGH PRIORITY SITES | 1 |
+| INTERVENTIONS PROPOSED | 3 |
+| INTERVENTIONS COMPLETED | 1 |
+
+"Completed" counts any stage at or past Completed, so the seeded Contour
+Trench (stage Monitoring) counts. Below the actions, an offline banner reads
+**"1 record queued offline"**.
+
+Note: the header's "GPS ON" dot is currently hardcoded on and does not
+reflect real GPS state. Known defect, recorded in `README.md`.
+
+**3. Capture screen.** Camera and location permissions are requested on
+entry. Expect a live viewfinder with corner brackets and a clay shutter on
+the right (or a dark "tap to grant permission" panel if camera was denied);
+a GPS card moving `ACQUIRING FIX…` → real coordinates; a ten-option
+observation list; and a 280-character description field.
+
+Tap the shutter — a green **"✓ PHOTO CAPTURED — tap shutter again to
+retake"** banner should appear. Then **Save & Analyze**.
+
+**4. Site Analysis.** For a newly captured site, expect:
+
+- Priority score **62** if you selected Soil Erosion, **50** otherwise.
+- Data completeness **1 of 6** if you selected Soil Erosion, **0 of 6**
+  otherwise — with the line "…they are excluded from the score, not counted
+  as zero."
+- Five or six indicators showing dashed `UNAVAILABLE` chips.
+- A recommendation of **Field Survey**, with cost "COST · PENDING SURVEY"
+  and eligibility "ELIGIBILITY · TBD".
+
+This is the "missing ≠ zero" behaviour, and it is the honest default for
+every real capture — there is no GIS backend. Open the seeded `SITE-0142`
+instead to see a fully populated site (score 78, 4 of 6 indicators, Check
+Dam, "EST. ₹48,000", "MGNREGA ELIGIBLE").
+
+**5. Create Intervention** → returns to the Interventions list with a new
+Proposed row.
+
+**6. Interventions.** Four filter chips with live counts. Against the seed
+alone: `ALL 3`, `PROPOSED 1`, `ACTIVE 1`, `DONE 1`. Chips should actually
+change which cards show. **Advance Status** should step the pipeline and
+survive backing out and returning. **Monitoring** opens the before/after
+screen for that intervention.
+
+**7. Before / After Monitoring.** Two columns. The seeded Check Dam starts
+with 2 BEFORE and 1 AFTER photo, so the header reads **"3 / 4 PHOTOS"** and
+**Submit for Verification** is disabled — the minimum is two per set. Add one
+AFTER photo and it should enable. Tapping it relabels to
+"✓ Submitted for Verification" and stays disabled.
+
+**8. Restart the app.** Everything from steps 3–7 should still be there.
+That is Room, and it is real.
+
+---
+
+## 5. Governance Mode
+
+From the Entry screen, choose **Governance Mode**. There is no self-service
+signup by design; credentials are issued out of band. For the demo, the two
+accounts in `data/GovernanceCredentials.kt` are:
+
+| Officer ID | Password | Shows as |
+|---|---|---|
+| `bdo.kolar` | `kolar@2026` | BDO Kolar |
+| `officer1` | `chinnahalli1` | Field Officer · Chinnahalli |
+
+After login, expect a **live OpenStreetMap map** with one pin per geo-tagged
+capture — this needs network for tiles the first time; osmdroid caches them
+to `cacheDir` afterwards. Tapping a pin opens that site's analysis with an
+officer-only **Approve** action, which creates the intervention directly in
+the Approved stage.
+
+Pins are currently all identical default markers. The five-zone colour
+classification is not built yet.
+
+---
+
+## 6. Demoing "missing ≠ zero" deliberately
+
+Simply capture any photo. Because there is no GIS backend at all, every
+newly captured site shows dashed `UNAVAILABLE` chips for Slope, Distance to
+Stream, Vegetation, Existing Structure and Agricultural Land, and a
+completeness bar well under full.
+
+> Earlier versions of this guide told you to capture near `19.85, 73.43` to
+> land in an uncovered zone of a synthetic GIS layer. **That is obsolete.**
+> There is no synthetic GIS layer and no `MockGisRepository` — those were
+> removed. The demo watershed also moved from Nashik to Kolar.
+
+---
+
+## 7. Troubleshooting
+
+**Gradle can't resolve dependencies.** The build needs network access to
+`dl.google.com` and `repo1.maven.org`. On a restricted network nothing will
+resolve and the failure looks like a code problem but is not.
+
+**Map is blank grey.** osmdroid needs network for its first tile fetch.
+`Configuration.osmdroidBasePath` and `osmdroidTileCache` are both pointed at
+`cacheDir`; if you see storage-permission errors from osmdroid, that
+redirect is what to check.
+
+**GPS never resolves on an emulator.** Expected — set a simulated location,
+see §3.
+
+**Dashboard is empty on first launch.** Seeding failed. The database is
+`geowatershed.db`, schema v2, with `fallbackToDestructiveMigration()`, so
+clearing app data and relaunching will re-seed.

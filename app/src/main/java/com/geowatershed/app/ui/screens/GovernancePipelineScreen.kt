@@ -1,6 +1,7 @@
 package com.geowatershed.app.ui.screens
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -8,6 +9,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -15,8 +17,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.geowatershed.app.data.GeoWatershedViewModel
 import com.geowatershed.app.data.db.InterventionEntity
 import com.geowatershed.app.data.model.InterventionStage
@@ -51,6 +56,9 @@ fun GovernancePipelineScreen(
     val completed = interventions.count { InterventionStage.valueOf(it.stage) == InterventionStage.Completed }
     val pending = interventions.size - completed
     val completionFraction = if (interventions.isEmpty()) 0f else completed / interventions.size.toFloat()
+    val stageCounts = InterventionStage.entries.associateWith { stage ->
+        interventions.count { InterventionStage.valueOf(it.stage) == stage }
+    }
     val sorted = rememberSortedInterventions(interventions)
 
     Column(modifier = modifier.fillMaxSize().background(GWColors.NeutralBg)) {
@@ -70,6 +78,7 @@ fun GovernancePipelineScreen(
             ProgressTrack(fraction = completionFraction, fillColor = GWColors.Green700)
             Text("$completed done · $pending pending", style = GWType.meta, color = GWColors.Ink500)
         }
+        StageCountRow(counts = stageCounts)
         if (sorted.isEmpty()) {
             Text("No interventions yet.", color = GWColors.Ink600, modifier = Modifier.padding(24.dp))
         }
@@ -106,3 +115,49 @@ private fun rememberSortedInterventions(interventions: List<InterventionEntity>)
     androidx.compose.runtime.remember(interventions) {
         interventions.sortedByDescending { it.isStalled() }
     }
+
+/**
+ * The pipeline itself, stage by stage, with how many works sit at each.
+ * A single completion percentage hides where things are actually stuck;
+ * this does not.
+ */
+@Composable
+private fun StageCountRow(counts: Map<InterventionStage, Int>, modifier: Modifier = Modifier) {
+    Row(
+        modifier = modifier
+            .fillMaxWidth()
+            .horizontalScroll(rememberScrollState())
+            .padding(start = 18.dp, end = 18.dp, bottom = 14.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        InterventionStage.entries.forEachIndexed { index, stage ->
+            if (index > 0) {
+                Text("→", style = GWType.meta, color = GWColors.Ink300)
+            }
+            val count = counts[stage] ?: 0
+            val isEmpty = count == 0
+            Column(
+                modifier = Modifier
+                    .width(96.dp)
+                    .background(
+                        if (isEmpty) GWColors.MutedRowBg else stage.color.copy(alpha = 0.12f),
+                        RoundedCornerShape(10.dp),
+                    )
+                    .padding(horizontal = 10.dp, vertical = 10.dp),
+                verticalArrangement = Arrangement.spacedBy(5.dp),
+            ) {
+                Text(
+                    "$count",
+                    style = GWType.dataMonoMedium.copy(fontSize = 18.sp),
+                    color = if (isEmpty) GWColors.Ink300 else stage.color,
+                )
+                Text(
+                    stage.label.uppercase(),
+                    style = GWType.metaSmall.copy(fontSize = 9.5.sp),
+                    color = if (isEmpty) GWColors.Ink400 else GWColors.Ink600,
+                )
+            }
+        }
+    }
+}

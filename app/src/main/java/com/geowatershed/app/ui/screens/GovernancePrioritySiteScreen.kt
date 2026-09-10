@@ -20,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.geowatershed.app.data.GeoWatershedViewModel
+import com.geowatershed.app.data.PriorityExplainer
 import com.geowatershed.app.data.SiteAnalysisCalculator
 import com.geowatershed.app.data.db.CaptureEntity
 import com.geowatershed.app.data.formatCoords
@@ -30,6 +31,7 @@ import com.geowatershed.app.ui.components.RecommendedInterventionCard
 import com.geowatershed.app.ui.components.SectionLabel
 import com.geowatershed.app.ui.components.SeverityPill
 import com.geowatershed.app.ui.components.SiteIndicatorsList
+import com.geowatershed.app.ui.components.WhyFlaggedCard
 import com.geowatershed.app.ui.components.priorityLevelFor
 import com.geowatershed.app.ui.theme.GWColors
 import com.geowatershed.app.ui.theme.GWType
@@ -71,6 +73,9 @@ fun GovernancePrioritySiteScreen(
 
         val indicators = remember(currentCapture) { SiteAnalysisCalculator.indicatorsFor(currentCapture) }
         val available = indicators.count { it.isAvailable }
+        val explanation = remember(currentCapture, indicators) {
+            PriorityExplainer.explain(currentCapture, indicators)
+        }
         val level = priorityLevelFor(currentCapture.priorityScore)
         val overdueDays = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - currentCapture.timestamp)
 
@@ -94,6 +99,7 @@ fun GovernancePrioritySiteScreen(
                 }
             }
             PriorityScoreCard(score = currentCapture.priorityScore)
+            WhyFlaggedCard(explanation = explanation)
             DataCompletenessCard(available = available, total = indicators.size)
             Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
                 SectionLabel("SITE INDICATORS")
@@ -103,7 +109,7 @@ fun GovernancePrioritySiteScreen(
             val recommendedType = recommendedInterventionFor(currentCapture)
             RecommendedInterventionCard(
                 type = recommendedType,
-                reasoning = recommendationReasoning(currentCapture, indicators),
+                reasoning = explanation.insight,
                 costLabel = if (isSeedDemo) "EST. ₹48,000" else "COST · PENDING SURVEY",
                 eligibilityLabel = if (isSeedDemo) "MGNREGA ELIGIBLE" else "ELIGIBILITY · TBD",
                 ctaLabel = "Approve",
@@ -114,7 +120,8 @@ fun GovernancePrioritySiteScreen(
                 },
             )
             Text(
-                "Officer may override the AI recommendation before approving; the decision is logged against ${viewModel.governanceOfficerName}.",
+                "This recommendation is rule-based, not AI. The officer may override it before approving; " +
+                    "the decision is logged against ${viewModel.governanceOfficerName}.",
                 style = GWType.meta,
                 color = GWColors.Ink500,
             )

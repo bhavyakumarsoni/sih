@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:2:1-30:12
-INJECTED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:2:1-30:12
-INJECTED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:2:1-30:12
-INJECTED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:2:1-30:12
+ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:2:1-30:12
+INJECTED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:2:1-30:12
+INJECTED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:2:1-30:12
+INJECTED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:2:1-30:12
 MERGED from [androidx.camera:camera-video:1.3.4] /Users/bhavyakumarsoni/.gradle/caches/8.9/transforms/d9bd08f0677b97b54bba213427c2c494/transformed/camera-video-1.3.4/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.camera:camera-view:1.3.4] /Users/bhavyakumarsoni/.gradle/caches/8.9/transforms/c7b9092cca20e322a4888e5adb826f44/transformed/camera-view-1.3.4/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.camera:camera-lifecycle:1.3.4] /Users/bhavyakumarsoni/.gradle/caches/8.9/transforms/47eb8de4185c660e9b6459c3ce3ee965/transformed/camera-lifecycle-1.3.4/AndroidManifest.xml:2:1-7:12
@@ -88,42 +88,42 @@ MERGED from [androidx.exifinterface:exifinterface:1.3.7] /Users/bhavyakumarsoni/
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/bhavyakumarsoni/.gradle/caches/8.9/transforms/463bbabbd003aeb22957d3d037d0ba1f/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [org.osmdroid:osmdroid-android:6.1.18] /Users/bhavyakumarsoni/.gradle/caches/8.9/transforms/5dcfe3d1dacee86c15b1edbea6510a63/transformed/osmdroid-android-6.1.18/AndroidManifest.xml:2:1-27:12
 	package
-		INJECTED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml
 	android:versionCode
-		INJECTED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:2:11-69
+		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:2:11-69
 uses-permission#android.permission.CAMERA
-ADDED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:4:5-65
+ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:4:5-65
 	android:name
-		ADDED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:4:22-62
+		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:4:22-62
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:5:5-79
+ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:5:5-79
 	android:name
-		ADDED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:5:22-76
+		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:5:22-76
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:6:5-81
+ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:6:5-81
 	android:name
-		ADDED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:6:22-78
+		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:6:22-78
 uses-permission#android.permission.INTERNET
-ADDED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:7:5-67
+ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:7:5-67
 	android:name
-		ADDED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:7:22-64
+		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:7:22-64
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:8:5-79
+ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:8:5-79
 	android:name
-		ADDED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:8:22-76
+		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:8:22-76
 uses-feature#android.hardware.camera.any
-ADDED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:9:5-11:36
+ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:9:5-11:36
 	android:required
-		ADDED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:11:9-33
+		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:11:9-33
 	android:name
-		ADDED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:10:9-51
+		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:10:9-51
 application
-ADDED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:13:5-28:19
-INJECTED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:13:5-28:19
+ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:13:5-28:19
+INJECTED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:13:5-28:19
 MERGED from [androidx.camera:camera-camera2:1.3.4] /Users/bhavyakumarsoni/.gradle/caches/8.9/transforms/7b659b321fe06228fd03e4efa1b7919e/transformed/camera-camera2-1.3.4/AndroidManifest.xml:23:5-34:19
 MERGED from [androidx.camera:camera-camera2:1.3.4] /Users/bhavyakumarsoni/.gradle/caches/8.9/transforms/7b659b321fe06228fd03e4efa1b7919e/transformed/camera-camera2-1.3.4/AndroidManifest.xml:23:5-34:19
 MERGED from [androidx.camera:camera-core:1.3.4] /Users/bhavyakumarsoni/.gradle/caches/8.9/transforms/0a0f5c4c38185f0511f5fe72fad211a3/transformed/camera-core-1.3.4/AndroidManifest.xml:23:5-34:19
@@ -153,41 +153,41 @@ MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/bhavyakuma
 MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/bhavyakumarsoni/.gradle/caches/8.9/transforms/6ae8239bbe00e974e0b27b30e91720db/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
 MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/bhavyakumarsoni/.gradle/caches/8.9/transforms/6ae8239bbe00e974e0b27b30e91720db/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
 	android:extractNativeLibs
-		INJECTED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.13.1] /Users/bhavyakumarsoni/.gradle/caches/8.9/transforms/75ea9556da06a2ddba1460016a6e4412/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:18:9-35
+		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:18:9-35
 	android:label
-		ADDED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:16:9-41
+		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:16:9-41
 	android:icon
-		ADDED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:15:9-43
+		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:15:9-43
 	android:allowBackup
-		ADDED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:14:9-35
+		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:14:9-35
 	android:theme
-		ADDED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:17:9-50
+		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:17:9-50
 activity#com.geowatershed.app.MainActivity
-ADDED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:19:9-27:20
+ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:19:9-27:20
 	android:exported
-		ADDED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:21:13-36
+		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:21:13-36
 	android:theme
-		ADDED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:22:13-54
+		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:22:13-54
 	android:name
-		ADDED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:20:13-41
+		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:20:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:23:13-26:29
+ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:23:13-26:29
 action#android.intent.action.MAIN
-ADDED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:24:17-69
+ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:24:17-69
 	android:name
-		ADDED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:24:25-66
+		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:24:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:25:17-77
+ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:25:17-77
 	android:name
-		ADDED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml:25:27-74
+		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:25:27-74
 uses-sdk
-INJECTED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml
-INJECTED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml
+INJECTED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml
+INJECTED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml
 MERGED from [androidx.camera:camera-video:1.3.4] /Users/bhavyakumarsoni/.gradle/caches/8.9/transforms/d9bd08f0677b97b54bba213427c2c494/transformed/camera-video-1.3.4/AndroidManifest.xml:5:5-44
 MERGED from [androidx.camera:camera-video:1.3.4] /Users/bhavyakumarsoni/.gradle/caches/8.9/transforms/d9bd08f0677b97b54bba213427c2c494/transformed/camera-video-1.3.4/AndroidManifest.xml:5:5-44
 MERGED from [androidx.camera:camera-view:1.3.4] /Users/bhavyakumarsoni/.gradle/caches/8.9/transforms/c7b9092cca20e322a4888e5adb826f44/transformed/camera-view-1.3.4/AndroidManifest.xml:5:5-44
@@ -355,9 +355,9 @@ MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/bhavyakumarsoni/
 MERGED from [org.osmdroid:osmdroid-android:6.1.18] /Users/bhavyakumarsoni/.gradle/caches/8.9/transforms/5dcfe3d1dacee86c15b1edbea6510a63/transformed/osmdroid-android-6.1.18/AndroidManifest.xml:5:5-7:41
 MERGED from [org.osmdroid:osmdroid-android:6.1.18] /Users/bhavyakumarsoni/.gradle/caches/8.9/transforms/5dcfe3d1dacee86c15b1edbea6510a63/transformed/osmdroid-android-6.1.18/AndroidManifest.xml:5:5-7:41
 	android:targetSdkVersion
-		INJECTED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml
 service#androidx.camera.core.impl.MetadataHolderService
 ADDED from [androidx.camera:camera-camera2:1.3.4] /Users/bhavyakumarsoni/.gradle/caches/8.9/transforms/7b659b321fe06228fd03e4efa1b7919e/transformed/camera-camera2-1.3.4/AndroidManifest.xml:24:9-33:19
 MERGED from [androidx.camera:camera-core:1.3.4] /Users/bhavyakumarsoni/.gradle/caches/8.9/transforms/0a0f5c4c38185f0511f5fe72fad211a3/transformed/camera-core-1.3.4/AndroidManifest.xml:29:9-33:78

@@ -1,0 +1,540 @@
+--------- beginning of main
+09-10 20:48:39.759  1258  2320 I FontLog : (REDACTED) Pulling font file for id = %d, cache size = %d
+09-10 20:48:39.760  1258  1317 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+09-10 20:48:39.762  1258  2320 I FontLog : (REDACTED) Received query %s, URI %s
+09-10 20:48:39.762  1258  2320 I FontLog : (REDACTED) Query [%s] resolved to %s
+09-10 20:48:39.762  1258  2320 I FontLog : (REDACTED) Font PFD returned from cache for %s
+09-10 20:48:39.762  1258  2320 I FontLog : (REDACTED) Fetch %s end status %s
+09-10 20:48:39.763  1258  1874 I FontLog : (REDACTED) Pulling font file for id = %d, cache size = %d
+09-10 20:48:39.767  1258  1874 I FontLog : (REDACTED) Received query %s, URI %s
+09-10 20:48:39.767  1258  1874 I FontLog : (REDACTED) Query [%s] resolved to %s
+09-10 20:48:39.767  1258  1874 I FontLog : (REDACTED) Font PFD returned from cache for %s
+09-10 20:48:39.767  1258  1874 I FontLog : (REDACTED) Fetch %s end status %s
+09-10 20:48:39.767  1258  2320 I FontLog : (REDACTED) Pulling font file for id = %d, cache size = %d
+09-10 20:48:39.769  1558  1700 I LocationSettings: (REDACTED) Read NLP consent from settings: %b
+09-10 20:48:39.770  3691  3714 D nativeloader: Load /data/app/~~2dq90cqcreTONmBY0j33qg==/com.google.android.trichromelibrary_782700532-ct4iJzF3Y4wM92fYPgy4kQ==/TrichromeLibrary.apk!/lib/arm64-v8a/libmonochrome_64.so using class loader ns clns-10 (caller=/data/app/~~VF-j8a6ef6rHJk0ROp5xBw==/com.android.chrome-2KzWyMYkxe3Tah6-KvPVWA==/Chrome.apk): ok
+09-10 20:48:39.770  1558  1558 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.semanticlocationhistory.deidentifieddata.wifi.WifiPlaceVisitProcessingService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsInternalBoundBrokerService }
+09-10 20:48:39.770  1258  1861 I NetworkScheduler.Stats: (REDACTED) HousekeepingTask %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+09-10 20:48:39.790  3562  3594 I Finsky:background: [51] SCH: Scheduling phonesky job Id: 47-15, CT: 1789053519739, Constraints: [{ L: 3600000, D: 4368654, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_NONE, B: BATTERY_ANY }]
+09-10 20:48:39.791  1558  1558 D BoundBrokerSvc: onBind: Intent { act=com.google.android.gms.semanticlocationhistory.deidentifieddata.golden.ParcelSynchronizePersonalizationJob.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsInternalBoundBrokerService }
+09-10 20:48:39.791  1558  1558 D BoundBrokerSvc: Loading bound service for intent: Intent { act=com.google.android.gms.semanticlocationhistory.deidentifieddata.golden.ParcelSynchronizePersonalizationJob.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsInternalBoundBrokerService }
+09-10 20:48:39.792  1258  3330 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+09-10 20:48:39.796  1558  1558 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.semanticlocationhistory.deidentifieddata.golden.ParcelSynchronizePersonalizationJob.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsInternalBoundBrokerService }
+09-10 20:48:39.797  1258  1317 I NetworkScheduler.Stats: (REDACTED) HousekeepingTask %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+09-10 20:48:39.798  3691  3714 I cr_LibraryLoader: Successfully loaded native library
+09-10 20:48:39.802  3691  3714 I cr_CachingUmaRecorder: Flushed 10 samples from 9 histograms, 0 samples were dropped.
+09-10 20:48:39.803  1558  1558 D BoundBrokerSvc: onBind: Intent { act=com.google.android.gms.semanticlocationhistory.deidentifieddata.historicalbusyness.TransientHistoricalBusynessProcessingService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsInternalBoundBrokerService }
+09-10 20:48:39.803  1558  1558 D BoundBrokerSvc: Loading bound service for intent: Intent { act=com.google.android.gms.semanticlocationhistory.deidentifieddata.historicalbusyness.TransientHistoricalBusynessProcessingService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsInternalBoundBrokerService }
+09-10 20:48:39.804  1258  1861 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+09-10 20:48:39.810  3562  3591 I Finsky:background: [48] SCH: Scheduling 1 system job(s)
+09-10 20:48:39.810  3562  3591 W JobInfo : Job 'com.android.vending/com.google.android.finsky.scheduler.process.backgroundimpl.PhoneskyJobServiceBackground#10866' has a deadline with functional constraints and an extremely short time window of 768654 ms (delay=3599929, deadline=4368583). The functional constraints are not likely to be satisfied when the job runs.
+09-10 20:48:39.810  3562  3591 I Finsky:background: [48] SCH: Scheduling system job Id: 10866, L: 3599929, D: 4368583, C: false, I: true, N: 0
+09-10 20:48:39.810   651   731 W JobInfo : Job 'com.android.vending/com.google.android.finsky.scheduler.process.backgroundimpl.PhoneskyJobServiceBackground#10866' has a deadline with functional constraints and an extremely short time window of 768654 ms (delay=3599929, deadline=4368583). The functional constraints are not likely to be satisfied when the job runs.
+09-10 20:48:39.811  1258  1861 I NetworkScheduler.Stats: (REDACTED) HousekeepingTask %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+09-10 20:48:39.811  1558  1558 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.semanticlocationhistory.deidentifieddata.historicalbusyness.TransientHistoricalBusynessProcessingService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsInternalBoundBrokerService }
+09-10 20:48:39.813  1258  1258 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.scheduler.standalone.housekeeping.HousekeepingTrainTaskService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentInternalBoundBrokerService }
+09-10 20:48:39.814  2557  3277 W PersephoneGrpcManifestC: Request to download Manifest config failed: mqs: INVALID_ARGUMENT: Request contains an invalid argument. for request with labels: {device_model=cpu, build_id=17732, model_type=preview}
+09-10 20:48:39.815  3562  3592 I Finsky:background: [49] SCH: no pending jobs to schedule.
+09-10 20:48:39.815  3562  3592 I Finsky:background: [49] SCH: no pending jobs to schedule.
+09-10 20:48:39.815  3562  3648 I Finsky:background: [75] SCH: job service finished with id 10858.
+09-10 20:48:39.815  2557  3277 E TtsHadesFileGroupPopula: Failed to refresh file group for locale preview
+09-10 20:48:39.815  2557  3277 E TtsHadesFileGroupPopula: efd: Request to download Manifest config failed: INVALID_ARGUMENT: Request contains an invalid argument.
+09-10 20:48:39.815  2557  3277 E TtsHadesFileGroupPopula: 	at ins.b(PG:32)
+09-10 20:48:39.815  2557  3277 E TtsHadesFileGroupPopula: 	at dxi.bx(PG:458)
+09-10 20:48:39.815  2557  3277 E TtsHadesFileGroupPopula: 	at nku.cv(PG:11)
+09-10 20:48:39.815  2557  3277 E TtsHadesFileGroupPopula: 	at nyf.cs(PG:7)
+09-10 20:48:39.815  2557  3277 E TtsHadesFileGroupPopula: 	at nop.cv(PG:14)
+09-10 20:48:39.815  2557  3277 E TtsHadesFileGroupPopula: 	at nku.cv(PG:35)
+09-10 20:48:39.815  2557  3277 E TtsHadesFileGroupPopula: 	at nqg.run(PG:104)
+09-10 20:48:39.815  2557  3277 E TtsHadesFileGroupPopula: 	at eap.run(PG:7)
+09-10 20:48:39.815  2557  3277 E TtsHadesFileGroupPopula: 	at kfa.run(PG:44)
+09-10 20:48:39.815  2557  3277 E TtsHadesFileGroupPopula: 	at dlw.run(PG:1270)
+09-10 20:48:39.815  2557  3277 E TtsHadesFileGroupPopula: 	at java.lang.Thread.run(Thread.java:1571)
+09-10 20:48:39.815  2557  3277 E TtsHadesFileGroupPopula: 	at eca.run(PG:61)
+09-10 20:48:39.815  2557  3277 E TtsHadesFileGroupPopula: Caused by: mqs: INVALID_ARGUMENT: Request contains an invalid argument.
+09-10 20:48:39.815  2557  3277 E TtsHadesFileGroupPopula: 	at ndo.a(PG:21)
+09-10 20:48:39.815  2557  3277 E TtsHadesFileGroupPopula: 	at ivw.run(PG:811)
+09-10 20:48:39.815  2557  3277 E TtsHadesFileGroupPopula: 	at mwc.m(PG:14)
+09-10 20:48:39.815  2557  3277 E TtsHadesFileGroupPopula: 	at mwc.a(PG:8)
+09-10 20:48:39.815  2557  3277 E TtsHadesFileGroupPopula: 	at mvg.k(PG:1)
+09-10 20:48:39.815  2557  3277 E TtsHadesFileGroupPopula: 	at mvd.a(PG:28)
+09-10 20:48:39.815  2557  3277 E TtsHadesFileGroupPopula: 	at mvv.run(PG:7)
+09-10 20:48:39.815  2557  3277 E TtsHadesFileGroupPopula: 	at nbs.run(PG:12)
+09-10 20:48:39.815  2557  3277 E TtsHadesFileGroupPopula: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+09-10 20:48:39.815  2557  3277 E TtsHadesFileGroupPopula: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+09-10 20:48:39.815  2557  3277 E TtsHadesFileGroupPopula: 	at java.lang.Thread.run(Thread.java:1571)
+09-10 20:48:39.817  1258  2505 I NetworkScheduler.Stats: (REDACTED) Task %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+09-10 20:48:39.818  3562  3648 I Finsky:background: [75] SCH: job service finished with id 10857.
+09-10 20:48:39.823  1558  1558 D BoundBrokerSvc: onBind: Intent { act=com.google.android.gms.semanticlocationhistory.deidentifieddata.pulptraining.PulpTrainingService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsInternalBoundBrokerService }
+09-10 20:48:39.823  1558  1558 D BoundBrokerSvc: Loading bound service for intent: Intent { act=com.google.android.gms.semanticlocationhistory.deidentifieddata.pulptraining.PulpTrainingService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsInternalBoundBrokerService }
+09-10 20:48:39.824  1258  2505 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+09-10 20:48:39.824  1258  1916 I PlatformConfigurator: Committed boot-stable namespaces. [CONTEXT service_id=204 ]
+09-10 20:48:39.826  1258  2385 I AlarmManager: setExactAndAllowWhileIdle [name: GCM_HB_ALARM type: 2 triggerAtMillis: 618436]
+09-10 20:48:39.826  1258  2385 W WakeLock: GCM_CONN_ALARM counter does not exist
+09-10 20:48:39.827  1558  1700 D nativeloader: Load /data/app/~~yp1DLZ6wCkcGmGmSMQYmAA==/com.google.android.gms-mZU_DkpQGs9oT9-uo5pj9A==/base.apk!/lib/arm64-v8a/libgeller_jni_lite_lib.so using class loader ns clns-9 (caller=/data/app/~~yp1DLZ6wCkcGmGmSMQYmAA==/com.google.android.gms-mZU_DkpQGs9oT9-uo5pj9A==/base.apk): ok
+09-10 20:48:39.827  1258  1916 I PlatformConfigurator: (REDACTED) Setting runtime properties for all namespaces. Build id %s
+09-10 20:48:39.830  2557  3273 E NGSA.ModelMgrWrapper: Can't get TTS model availability
+09-10 20:48:39.830  2557  3273 E NGSA.ModelMgrWrapper: efd: Nothing to download for file group: tts-models_preview
+09-10 20:48:39.830  2557  3273 E NGSA.ModelMgrWrapper: 	at ins.b(PG:32)
+09-10 20:48:39.830  2557  3273 E NGSA.ModelMgrWrapper: 	at hny.a(PG:55)
+09-10 20:48:39.830  2557  3273 E NGSA.ModelMgrWrapper: 	at kkr.a(PG:61)
+09-10 20:48:39.830  2557  3273 E NGSA.ModelMgrWrapper: 	at kke.d(PG:3)
+09-10 20:48:39.830  2557  3273 E NGSA.ModelMgrWrapper: 	at kkg.run(PG:38)
+09-10 20:48:39.830  2557  3273 E NGSA.ModelMgrWrapper: 	at kmr.run(PG:197)
+09-10 20:48:39.830  2557  3273 E NGSA.ModelMgrWrapper: 	at eap.run(PG:7)
+09-10 20:48:39.830  2557  3273 E NGSA.ModelMgrWrapper: 	at kfa.run(PG:44)
+09-10 20:48:39.830  2557  3273 E NGSA.ModelMgrWrapper: 	at dlw.run(PG:1270)
+09-10 20:48:39.830  2557  3273 E NGSA.ModelMgrWrapper: 	at java.lang.Thread.run(Thread.java:1571)
+09-10 20:48:39.830  2557  3273 E NGSA.ModelMgrWrapper: 	at eca.run(PG:61)
+09-10 20:48:39.830  2557  3273 W nbv     : Cancelling the stream because of internal error
+09-10 20:48:39.830  2557  3273 W nbv     : mqu: INTERNAL: Completed without a response
+09-10 20:48:39.830  2557  3273 W nbv     : 	at nbv.a(PG:44)
+09-10 20:48:39.830  2557  3273 W nbv     : 	at mpx.a(PG:3)
+09-10 20:48:39.830  2557  3273 W nbv     : 	at jkb.a(PG:1)
+09-10 20:48:39.830  2557  3273 W nbv     : 	at mpx.a(PG:3)
+09-10 20:48:39.830  2557  3273 W nbv     : 	at lby.a(PG:68)
+09-10 20:48:39.830  2557  3273 W nbv     : 	at nhh.a(PG:10)
+09-10 20:48:39.830  2557  3273 W nbv     : 	at hwe.a(PG:22)
+09-10 20:48:39.830  2557  3273 W nbv     : 	at hwn.a(PG:150)
+09-10 20:48:39.830  2557  3273 W nbv     : 	at jja.a(PG:18)
+09-10 20:48:39.830  2557  3273 W nbv     : 	at klt.run(PG:19)
+09-10 20:48:39.830  2557  3273 W nbv     : 	at eap.run(PG:7)
+09-10 20:48:39.830  2557  3273 W nbv     : 	at kfa.run(PG:44)
+09-10 20:48:39.830  2557  3273 W nbv     : 	at dlw.run(PG:1270)
+09-10 20:48:39.830  2557  3273 W nbv     : 	at java.lang.Thread.run(Thread.java:1571)
+09-10 20:48:39.830  2557  3273 W nbv     : 	at eca.run(PG:61)
+09-10 20:48:39.830  2557  3273 W NGSA.GoogleAsrService: #checkModelAvailability cancelled by client.
+09-10 20:48:39.832  1258  3330 I AlarmManager: setExactAndAllowWhileIdle [name: GCM_HB_ALARM type: 2 triggerAtMillis: 618443]
+09-10 20:48:39.836  2557  3267 W VoiceDataDownloader: VoiceLM path fetch failed, resetting future ref.
+09-10 20:48:39.836  2557  3267 W VoiceDataDownloader: mqu: CANCELLED
+09-10 20:48:39.836  2557  3267 W VoiceDataDownloader: 	at nhd.a(PG:41)
+09-10 20:48:39.836  2557  3267 W VoiceDataDownloader: 	at mvg.k(PG:1)
+09-10 20:48:39.836  2557  3267 W VoiceDataDownloader: 	at mvd.a(PG:28)
+09-10 20:48:39.836  2557  3267 W VoiceDataDownloader: 	at mvv.run(PG:7)
+09-10 20:48:39.836  2557  3267 W VoiceDataDownloader: 	at nbs.run(PG:12)
+09-10 20:48:39.836  2557  3267 W VoiceDataDownloader: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+09-10 20:48:39.836  2557  3267 W VoiceDataDownloader: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+09-10 20:48:39.836  2557  3267 W VoiceDataDownloader: 	at java.lang.Thread.run(Thread.java:1571)
+09-10 20:48:39.837  1558  1558 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.semanticlocationhistory.deidentifieddata.pulptraining.PulpTrainingService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsInternalBoundBrokerService }
+09-10 20:48:39.838  1258  2537 I NetworkScheduler.Stats: (REDACTED) Task %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+09-10 20:48:39.841  2557  2753 W VoiceDataManager: Failed to get VoiceLM model paths.
+09-10 20:48:39.841  2557  2753 W VoiceDataManager: mqu: CANCELLED
+09-10 20:48:39.841  2557  2753 W VoiceDataManager: 	at nhd.a(PG:41)
+09-10 20:48:39.841  2557  2753 W VoiceDataManager: 	at mvg.k(PG:1)
+09-10 20:48:39.841  2557  2753 W VoiceDataManager: 	at mvd.a(PG:28)
+09-10 20:48:39.841  2557  2753 W VoiceDataManager: 	at mvv.run(PG:7)
+09-10 20:48:39.841  2557  2753 W VoiceDataManager: 	at nbs.run(PG:12)
+09-10 20:48:39.841  2557  2753 W VoiceDataManager: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+09-10 20:48:39.841  2557  2753 W VoiceDataManager: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+09-10 20:48:39.841  2557  2753 W VoiceDataManager: 	at java.lang.Thread.run(Thread.java:1571)
+09-10 20:48:39.852  1258  2505 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+09-10 20:48:39.852  1258  1317 I TapAndPay: Cleaned up cached fully rendered card arts [CONTEXT service_id=79 ]
+09-10 20:48:39.853  1258  2505 I NetworkScheduler.Stats: (REDACTED) Task %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+09-10 20:48:39.858  1558  1558 D BoundBrokerSvc: onBind: Intent { act=com.google.android.gms.notifications.registration.service.NotificationsRegistrationTaskBoundService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsInternalBoundBrokerService }
+09-10 20:48:39.858  1558  1558 D BoundBrokerSvc: Loading bound service for intent: Intent { act=com.google.android.gms.notifications.registration.service.NotificationsRegistrationTaskBoundService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsInternalBoundBrokerService }
+09-10 20:48:39.859  1558  1558 I GmsCoreXrpcWrapper: (REDACTED) Returning a channel provider with trafficStatsTag=%d trafficStatsUid=%d
+09-10 20:48:39.861  1258  1317 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+09-10 20:48:39.869  1258  1874 W GLSUser : [DeviceKeyStore] Cannot load key: Device key file not found.
+09-10 20:48:39.869  1258  1874 W GLSUser : [DeviceKeyStore] Cannot load key: Device key file not found.
+09-10 20:48:39.942  2420  2503 W BugleRcsEngine: Unable to send diagnostic log [CONTEXT thread_id=53 ]
+09-10 20:48:39.943  2420  2856 I BugleRcsEngine: DroidGuardAttestationState: event HTTP Response [6f3b5723-325e-4dbd-80bd-104993eb1fc2] [CONTEXT log_prefix="(PEv2-SM77724878-DefaultCallSmsData-1-b95)" thread_id=76 ]
+09-10 20:48:39.943  2420  2856 I StateMachineV2: Sent message 5 to 37
+09-10 20:48:39.943  2420  2856 I BugleRcsEngine: InProgressState: event HTTP Response [6f3b5723-325e-4dbd-80bd-104993eb1fc2] [CONTEXT log_prefix="(PEv2-SM77724878-DefaultCallSmsData-1-b95)" thread_id=76 ]
+09-10 20:48:39.943  2420  2856 W BugleRcsEngine: Unable to send diagnostic log [CONTEXT thread_id=76 ]
+09-10 20:48:39.943  2420  2503 I BugleRcsEngine: DroidGuardAttestationState: event HTTP 200 (OK) [6f3b5723-325e-4dbd-80bd-104993eb1fc2] [CONTEXT log_prefix="(PEv2-SM77724878-DefaultCallSmsData-1-b95)" thread_id=53 ]
+09-10 20:48:39.944  2420  2503 E BugleRcsEngine: Failed to parse the attestation response [6f3b5723-325e-4dbd-80bd-104993eb1fc2] [CONTEXT log_prefix="(PEv2-SM77724878-DefaultCallSmsData-1-b95)" thread_id=53 ]
+09-10 20:48:39.944  2420  2503 E BugleRcsEngine: java.io.IOException: Received attestation response doesn't include a nonce
+09-10 20:48:39.944  2420  2503 E BugleRcsEngine: 	at dwat.b(PG:54)
+09-10 20:48:39.944  2420  2503 E BugleRcsEngine: 	at dvwd.l(PG:27)
+09-10 20:48:39.944  2420  2503 E BugleRcsEngine: 	at dvwd.j(PG:104)
+09-10 20:48:39.944  2420  2503 E BugleRcsEngine: 	at dvza.t(PG:31)
+09-10 20:48:39.944  2420  2503 E BugleRcsEngine: 	at dvyx.j(PG:75)
+09-10 20:48:39.944  2420  2503 E BugleRcsEngine: 	at dvyr.b(PG:20)
+09-10 20:48:39.944  2420  2503 E BugleRcsEngine: 	at dvyr.a(PG:13)
+09-10 20:48:39.944  2420  2503 E BugleRcsEngine: 	at gabg.a(PG:14)
+09-10 20:48:39.944  2420  2503 E BugleRcsEngine: 	at fzka.a(PG:11)
+09-10 20:48:39.944  2420  2503 E BugleRcsEngine: 	at fbag.b(PG:37)
+09-10 20:48:39.944  2420  2503 E BugleRcsEngine: 	at fyya.w(PG:11)
+09-10 20:48:39.944  2420  2503 E BugleRcsEngine: 	at fzkp.run(PG:112)
+09-10 20:48:39.944  2420  2503 E BugleRcsEngine: 	at eyub.run(PG:3)
+09-10 20:48:39.944  2420  2503 E BugleRcsEngine: 	at fajr.run(PG:17)
+09-10 20:48:39.944  2420  2503 E BugleRcsEngine: 	at egtw.run(PG:7)
+09-10 20:48:39.944  2420  2503 E BugleRcsEngine: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+09-10 20:48:39.944  2420  2503 E BugleRcsEngine: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+09-10 20:48:39.944  2420  2503 E BugleRcsEngine: 	at egta.run(PG:13)
+09-10 20:48:39.944  2420  2503 E BugleRcsEngine: 	at java.lang.Thread.run(Thread.java:1571)
+09-10 20:48:39.944  2420  2503 E BugleRcsEngine: 	at egut.run(PG:62)
+09-10 20:48:39.944  2420  2503 W BugleRcsEngine: Unable to send diagnostic log [CONTEXT thread_id=53 ]
+09-10 20:48:39.944  2420  2503 W BugleRcsEngine: Unable to send diagnostic log [CONTEXT thread_id=53 ]
+09-10 20:48:39.946  2420  2503 I PhoneNumberRecordTracke: storeVerificationResponse for rcsProvisioningId: redacted-pii:sim_id[chars:20,last3:897], verificationResponseStatus: 12
+09-10 20:48:39.950  2420  2856 I StateMachineV2: State transition requested, from 37 to 5
+09-10 20:48:39.950  2420  2856 I StateMachineV2: Exiting dvwd@33fdd7d
+09-10 20:48:39.950  2420  2856 I BugleRcsEngine: Exit DroidGuardAttestationState [6f3b5723-325e-4dbd-80bd-104993eb1fc2] [CONTEXT log_prefix="(PEv2-SM77724878-DefaultCallSmsData-1-b95)" thread_id=76 ]
+09-10 20:48:39.950  2420  2856 W BugleRcsEngine: Unable to send diagnostic log [CONTEXT thread_id=76 ]
+09-10 20:48:39.950  2420  2856 I StateMachineV2: Exiting dvwk@1793d36
+09-10 20:48:39.950  2420  2856 I BugleRcsEngine: Exit InProgressState [6f3b5723-325e-4dbd-80bd-104993eb1fc2] [CONTEXT log_prefix="(PEv2-SM77724878-DefaultCallSmsData-1-b95)" thread_id=76 ]
+09-10 20:48:39.950  2420  2856 W BugleRcsEngine: Unable to send diagnostic log [CONTEXT thread_id=76 ]
+09-10 20:48:39.950  2420  2856 I StateMachineV2: Entering dvxg@49e0d
+09-10 20:48:39.950  2420  2856 I BugleRcsEngine: Enter RetryState [6f3b5723-325e-4dbd-80bd-104993eb1fc2] [CONTEXT log_prefix="(PEv2-SM77724878-DefaultCallSmsData-1-b95)" thread_id=76 ]
+09-10 20:48:39.952  2420  2856 W BugleRcsEngine: Unable to send diagnostic log [CONTEXT thread_id=76 ]
+09-10 20:48:39.953  2420  2856 I StateMachineV2: Queuing delayed 9 for PT5M
+09-10 20:48:39.953  2420  2856 I BugleRcsEngine: nextRetry = 0 [6f3b5723-325e-4dbd-80bd-104993eb1fc2] [CONTEXT log_prefix="(PEv2-SM77724878-DefaultCallSmsData-1-b95)" thread_id=76 ]
+09-10 20:48:39.954  2420  2856 I BugleRcsEngine: scheduleRetry, currentRetry = 0, retryMillis = 15360000 [6f3b5723-325e-4dbd-80bd-104993eb1fc2] [CONTEXT log_prefix="(PEv2-SM77724878-DefaultCallSmsData-1-b95)" thread_id=76 ]
+09-10 20:48:39.964  2420  2856 I BugleRcsEngine: [SR]: Single Registration is disabled. Skipping Single Registration capability check for subId: 1 [CONTEXT thread_id=76 ]
+09-10 20:48:39.964  2420  2856 I BugleRcsEngine: No RCS Configuration was found in Bugle for simID: redacted-pii:sim_id[chars:20,last3:897] [CONTEXT log_prefix="ProvisioningEngineDataRetriever" thread_id=76 ]
+09-10 20:48:39.965  2420  2856 I BugleRcsProvisioning: RcsAvailability configuration availability and enabled status: simId: redacted-pii:sim_id[chars:20,last3:897], SipConnectionType: DUAL_REG, isConfigurationAvailableAndEnabled: false
+09-10 20:48:39.965  2420  2856 I BugleRcsProvisioning: Checking isConfigServerUrlAvailable with simId: redacted-pii:sim_id[chars:20,last3:897], 
+09-10 20:48:39.965  2420  2856 I BugleRcsEngine: getConfigServerUrl with simId: redacted-pii:sim_id[chars:20,last3:897] [CONTEXT log_prefix="ProvisioningServerUtil" thread_id=76 ]
+09-10 20:48:39.965  2420  2856 I BugleRcsEngine: Using config server URL from crkf [CONTEXT log_prefix="ProvisioningServerUtil" thread_id=76 ]
+09-10 20:48:39.966  2420  2856 I BugleRcsProvisioning: RcsAvailability: Subscription Id: 1, simId: redacted-pii:sim_id[chars:20,last3:897], sipConnectionType: DUAL_REG, isRcsAvailable: false
+09-10 20:48:39.967  2420  2856 I BugleRcsEngine: No RCS Configuration was found in Bugle for simID: redacted-pii:sim_id[chars:20,last3:897] [CONTEXT log_prefix="ProvisioningEngineDataRetriever" thread_id=76 ]
+09-10 20:48:39.967  2420  2856 I BugleRcsProvisioning: updateAvailabilityForRcsProvisioningId. SimId: redacted-pii:sim_id[chars:20,last3:897], currentAvailability: 10, newAvailability: 10, hint: NO_HINT
+09-10 20:48:39.968  2420  3136 I BugleRcsProvisioning: RcsProvisioningTrigger: onRcsAvailabilityUpdate : availability is updated to Carrier RCS is not set up, lastAvailabilityLocal is Carrier RCS is not set up, simId hash = 5468917572870256715, simId = redacted-pii:sim_id[chars:20,last3:897], isPev3Enabled = true
+09-10 20:48:39.968  2420  2503 W BugleRcsEngine: Unable to send diagnostic log [CONTEXT thread_id=53 ]
+09-10 20:48:39.969  2420  2503 W BugleRcsEngine: Unable to send diagnostic log [CONTEXT thread_id=53 ]
+09-10 20:48:39.970  2420  2856 I RcsProvisioningListenab: [seqId=0][workId=3afedef8-8cd9-4655-83e8-6962fa4ee170] Received a provisioning state changed event from the provisioning engine RETRY
+09-10 20:48:39.970  2420  2856 I RcsProvisioningListenab: [seqId=0][workId=3afedef8-8cd9-4655-83e8-6962fa4ee170] Provisioning Engine entered RetryState, provisioning task will be rescheduled with exponential backoff
+09-10 20:48:39.973  2420  2856 I RcsProvisioningListenab: [seqId=0][workId=3afedef8-8cd9-4655-83e8-6962fa4ee170] finish provisioning task with result Success {mOutputData=Data {}}
+09-10 20:48:39.973  2420  2856 I RcsProvisioningListenab: [seqId=0][workId=3afedef8-8cd9-4655-83e8-6962fa4ee170] RCS provisioning task has finished with result Success {mOutputData=Data {}}
+09-10 20:48:39.974  2420  2486 I Bugle   : Scheduling custom retry
+09-10 20:48:39.975  2420  2503 I BugleRcsEngine: [SR]: Single Registration is disabled. Skipping Single Registration capability check for subId: 1 [CONTEXT thread_id=53 ]
+09-10 20:48:39.975  2420  2503 I BugleRcsEngine: No RCS Configuration was found in Bugle for simID: redacted-pii:sim_id[chars:20,last3:897] [CONTEXT log_prefix="ProvisioningEngineDataRetriever" thread_id=53 ]
+09-10 20:48:39.978  2420  2503 I BugleRcsEngine: [SR]: Single Registration is disabled. Skipping Single Registration capability check for subId: 1 [CONTEXT thread_id=53 ]
+09-10 20:48:39.978  2420  2503 I BugleRcsEngine: No RCS Configuration was found in Bugle for simID: redacted-pii:sim_id[chars:20,last3:897] [CONTEXT log_prefix="ProvisioningEngineDataRetriever" thread_id=53 ]
+09-10 20:48:39.978  2420  2503 I BugleRcsProvisioning: RcsAvailability configuration availability and enabled status: simId: redacted-pii:sim_id[chars:20,last3:897], SipConnectionType: DUAL_REG, isConfigurationAvailableAndEnabled: false
+09-10 20:48:39.978  2420  2503 I BugleRcsProvisioning: Checking isConfigServerUrlAvailable with simId: redacted-pii:sim_id[chars:20,last3:897], 
+09-10 20:48:39.979  2420  2893 I WM-WorkerWrapper: Worker result SUCCESS for Work [ id=3afedef8-8cd9-4655-83e8-6962fa4ee170, tags={ com.google.android.apps.messaging.shared.rcsprovisioning.RcsProvisioningListenableWorker,provisioning } ]
+09-10 20:48:39.979  2420  2420 D WM-Processor: sqq 3afedef8-8cd9-4655-83e8-6962fa4ee170 executed; reschedule = false
+09-10 20:48:39.979  2420  2420 D WM-SystemJobService: 3afedef8-8cd9-4655-83e8-6962fa4ee170 executed on JobScheduler
+09-10 20:48:39.979  2420  2420 D WM-GreedyScheduler: Stopping tracking for WorkGenerationalId(workSpecId=3afedef8-8cd9-4655-83e8-6962fa4ee170, generation=0)
+09-10 20:48:39.979  2420  2503 I BugleRcsEngine: getConfigServerUrl with simId: redacted-pii:sim_id[chars:20,last3:897] [CONTEXT log_prefix="ProvisioningServerUtil" thread_id=53 ]
+09-10 20:48:39.980  2420  3136 I BugleRcsEngine: [SR]: Single Registration is disabled. Skipping Single Registration capability check for subId: 1 [CONTEXT thread_id=89 ]
+09-10 20:48:39.980  2420  2503 I BugleRcsEngine: Using config server URL from crkf [CONTEXT log_prefix="ProvisioningServerUtil" thread_id=53 ]
+09-10 20:48:39.980  2420  3136 I BugleRcsEngine: No RCS Configuration was found in Bugle for simID: redacted-pii:sim_id[chars:20,last3:897] [CONTEXT log_prefix="ProvisioningEngineDataRetriever" thread_id=89 ]
+09-10 20:48:39.980  2420  2514 D WM-GreedyScheduler: Cancelling work ID 3afedef8-8cd9-4655-83e8-6962fa4ee170
+09-10 20:48:39.981  2420  2514 D WM-GreedyScheduler: Ignoring {WorkSpec: 324fd22a-104b-4e83-b4da-791909656097}. Requires device idle.
+09-10 20:48:39.981  2420  2514 D WM-GreedyScheduler: Ignoring {WorkSpec: 736073ad-0836-40e6-9fe1-9de4457be9ac}. Requires device idle.
+09-10 20:48:39.981  2420  2514 D WM-GreedyScheduler: Ignoring {WorkSpec: 4ff4b412-ee8b-4e3b-96f6-b8eefdb9e1d2}. Requires device idle.
+09-10 20:48:39.981  2420  2514 D WM-GreedyScheduler: Starting tracking for a7ce6312-e38c-46ca-9991-e37398b38c96,87cf3dfd-948e-4a51-99d8-d7139d2e6be3,5950306b-8318-40c7-92b1-4d424fd40988,34e4f1b4-173e-4631-b538-bff29849170d
+09-10 20:48:39.981  2420  3136 I BugleRcsProvisioning: RcsAvailability configuration availability and enabled status: simId: redacted-pii:sim_id[chars:20,last3:897], SipConnectionType: DUAL_REG, isConfigurationAvailableAndEnabled: false
+09-10 20:48:39.981  2420  3136 I BugleRcsProvisioning: Checking isConfigServerUrlAvailable with simId: redacted-pii:sim_id[chars:20,last3:897], 
+09-10 20:48:39.981  2420  3136 I BugleRcsEngine: getConfigServerUrl with simId: redacted-pii:sim_id[chars:20,last3:897] [CONTEXT log_prefix="ProvisioningServerUtil" thread_id=89 ]
+09-10 20:48:39.981  2420  3136 I BugleRcsEngine: Using config server URL from crkf [CONTEXT log_prefix="ProvisioningServerUtil" thread_id=89 ]
+09-10 20:48:39.982  2420  2503 I BugleRcsProvisioning: RcsAvailability: Subscription Id: 1, simId: redacted-pii:sim_id[chars:20,last3:897], sipConnectionType: DUAL_REG, isRcsAvailable: false
+09-10 20:48:39.982  2420  2503 I BugleRcsEngine: No RCS Configuration was found in Bugle for simID: redacted-pii:sim_id[chars:20,last3:897] [CONTEXT log_prefix="ProvisioningEngineDataRetriever" thread_id=53 ]
+09-10 20:48:39.982  2420  2503 I BugleRcsProvisioning: updateAvailabilityForRcsProvisioningId. SimId: redacted-pii:sim_id[chars:20,last3:897], currentAvailability: 10, newAvailability: 10, hint: NO_HINT
+09-10 20:48:39.982  2420  3136 I BugleRcsProvisioning: RcsAvailability: Subscription Id: 1, simId: redacted-pii:sim_id[chars:20,last3:897], sipConnectionType: DUAL_REG, isRcsAvailable: false
+09-10 20:48:39.982  2420  2856 I BugleRcsProvisioning: RcsProvisioningTrigger: onRcsAvailabilityUpdate : availability is updated to Carrier RCS is not set up, lastAvailabilityLocal is Carrier RCS is not set up, simId hash = 5468917572870256715, simId = redacted-pii:sim_id[chars:20,last3:897], isPev3Enabled = true
+09-10 20:48:39.983  2420  3136 I BugleRcsEngine: No RCS Configuration was found in Bugle for simID: redacted-pii:sim_id[chars:20,last3:897] [CONTEXT log_prefix="ProvisioningEngineDataRetriever" thread_id=89 ]
+09-10 20:48:39.983  2420  2521 I RcsProvisioningFlow: EVENT_TYPE_PROVISIONING_TASK_SCHEDULED logging skipped for redacted-pii:sim_id[chars:20,last3:897] because of NOT_ELIGIBLE_CURRENT_EVENT_ALREADY_LOGGED
+09-10 20:48:39.983  2420  3136 I BugleRcsProvisioning: updateAvailabilityForRcsProvisioningId. SimId: redacted-pii:sim_id[chars:20,last3:897], currentAvailability: 10, newAvailability: 10, hint: NO_HINT
+09-10 20:48:39.984  2420  2503 I RcsProvisioningWorkMana: Scheduled provisioning task with 3840 seconds delay, APPEND policy, trigger is STATE_MACHINE_RETRY, workerId is 85beb3d6-2991-47cb-886f-bbcd1d24820d, simId is redacted-pii:sim_id[chars:20,last3:897]
+09-10 20:48:39.984  2420  3136 I BugleRcsProvisioning: RcsProvisioningTrigger: onRcsAvailabilityUpdate : availability is updated to Carrier RCS is not set up, lastAvailabilityLocal is Carrier RCS is not set up, simId hash = 5468917572870256715, simId = redacted-pii:sim_id[chars:20,last3:897], isPev3Enabled = true
+09-10 20:48:39.985  1053  1063 W System  : A resource failed to call AbstractCursor.close. 
+09-10 20:48:39.987  2420  3144 D WM-SystemJobScheduler: Scheduling work ID 85beb3d6-2991-47cb-886f-bbcd1d24820dJob ID 1100
+09-10 20:48:39.988  2420  3144 D WM-GreedyScheduler: Ignoring {WorkSpec: 324fd22a-104b-4e83-b4da-791909656097}. Requires device idle.
+09-10 20:48:39.988  2420  3144 D WM-GreedyScheduler: Ignoring {WorkSpec: 736073ad-0836-40e6-9fe1-9de4457be9ac}. Requires device idle.
+09-10 20:48:39.988  2420  3144 D WM-GreedyScheduler: Ignoring {WorkSpec: 4ff4b412-ee8b-4e3b-96f6-b8eefdb9e1d2}. Requires device idle.
+09-10 20:48:39.988  2420  3144 D WM-GreedyScheduler: Starting tracking for a7ce6312-e38c-46ca-9991-e37398b38c96,87cf3dfd-948e-4a51-99d8-d7139d2e6be3,5950306b-8318-40c7-92b1-4d424fd40988,34e4f1b4-173e-4631-b538-bff29849170d
+09-10 20:48:40.015  1258  1916 I PlatformConfigurator: Committed boot-stable namespaces. [CONTEXT service_id=204 ]
+09-10 20:48:40.025   651   731 V GrammaticalInflectionUtils: AttributionSource: android.content.AttributionSource@9af70a0a does not have READ_SYSTEM_GRAMMATICAL_GENDER permission.
+09-10 20:48:40.028   428   428 D Zygote  : Forked child process 3730
+--------- beginning of system
+09-10 20:48:40.028   651   679 I ActivityManager: Start proc 3730:com.google.android.webview:webview_service/u0a167 for bound-service {com.google.android.webview/org.chromium.android_webview.services.VariationsSeedServer}
+09-10 20:48:40.029  3730  3730 I libprocessgroup: Created cgroup /sys/fs/cgroup/apps/uid_10167
+09-10 20:48:40.029  3730  3730 I libprocessgroup: Created cgroup /sys/fs/cgroup/apps/uid_10167/pid_3730
+09-10 20:48:40.030   651   677 D OomAdjuster: Not killing cached processes
+09-10 20:48:40.030  1029  1029 I HidDeviceService: unregisterAppUid(): uid=10107
+09-10 20:48:40.030  1029  1029 W HidDeviceService: unregisterAppUid(): caller UID doesn't match user UID
+09-10 20:48:40.030  3730  3730 I Zygote  : Process 3730 created for com.google.android.webview:webview_service
+09-10 20:48:40.030  3730  3730 I webview_service: Using generational CollectorTypeCMC GC.
+09-10 20:48:40.032  3730  3730 D nativeloader: Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+09-10 20:48:40.033  1029  1029 I HidDeviceService: unregisterAppUid(): uid=10167
+09-10 20:48:40.033  1029  1029 W HidDeviceService: unregisterAppUid(): caller UID doesn't match user UID
+09-10 20:48:40.034  3730  3730 D ApplicationLoaders: Returning zygote-cached class loader: /system/framework/android.test.base.jar
+09-10 20:48:40.034  3730  3730 D ApplicationLoaders: Returning zygote-cached class loader: /system_ext/framework/androidx.window.extensions.jar
+09-10 20:48:40.036  3730  3730 D nativeloader: Configuring clns-9 for other apk /data/app/~~oG7y045XVGhNP0lq3ovndA==/com.google.android.webview-YMKuDcHzBSxxpjLw7aB59Q==/WebViewGoogle.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~oG7y045XVGhNP0lq3ovndA==/com.google.android.webview-YMKuDcHzBSxxpjLw7aB59Q==/lib/arm64:/data/app/~~oG7y045XVGhNP0lq3ovndA==/com.google.android.webview-YMKuDcHzBSxxpjLw7aB59Q==/WebViewGoogle.apk!/lib/arm64-v8a, permitted_path=/data:/mnt/expand:/data/user/0/com.google.android.webview
+09-10 20:48:40.037  3730  3730 D ActivityThread: Set OS env TMPDIR to /data/user/0/com.google.android.webview/cache
+09-10 20:48:40.037  3730  3730 V GraphicsEnvironment: Currently set values for:
+09-10 20:48:40.037  3730  3730 V GraphicsEnvironment:   angle_gl_driver_selection_pkgs=[]
+09-10 20:48:40.037  3730  3730 V GraphicsEnvironment:   angle_gl_driver_selection_values=[]
+09-10 20:48:40.037  3730  3730 V GraphicsEnvironment: com.google.android.webview is not listed in per-application setting
+09-10 20:48:40.037  3730  3730 V GraphicsEnvironment: No special selections for ANGLE, returning default driver choice
+09-10 20:48:40.038  3730  3730 V GraphicsEnvironment: Neither updatable production driver nor prerelease driver is supported.
+09-10 20:48:40.038  3730  3730 I cr_WebViewApkApp: version=149.0.7827.5 (782700504) minSdkVersion=29 processName=com.google.android.webview:webview_service splits=<none>
+09-10 20:48:40.044  1029  1029 I HidDeviceService: unregisterAppUid(): uid=10167
+09-10 20:48:40.044  1029  1029 W HidDeviceService: unregisterAppUid(): caller UID doesn't match user UID
+09-10 20:48:40.046   651  2005 D ConnectivityService: requestNetwork for uid/pid:1000/651 asUid: 10167 activeRequest: null callbackRequest: 206 [NetworkRequest [ REQUEST id=207, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10167 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: false declaredMethods: AVAIL|LOST|BLK
+09-10 20:48:40.046   651   810 D WifiNetworkFactory: got request NetworkRequest [ REQUEST id=207, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10167 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]
+09-10 20:48:40.047   651   810 D UntrustedWifiNetworkFactory: got request NetworkRequest [ REQUEST id=207, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10167 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]
+09-10 20:48:40.047   651   810 D OemPaidWifiNetworkFactory: got request NetworkRequest [ REQUEST id=207, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10167 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]
+09-10 20:48:40.047   651   810 D MultiInternetWifiNetworkFactory: got request NetworkRequest [ REQUEST id=207, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10167 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]
+09-10 20:48:40.047   651   816 D ConnectivityService: NetReassign [207 : null → 101] [c 1] [a 0] [i 0]
+09-10 20:48:40.174   651   678 W ActivityManager: Skipping manifest association check for null package. SourceUid: -1, SourcePkg: null, TargetUid: 10169, TargetPkg: com.google.android.youtube
+09-10 20:48:40.174   651   678 W ActivityManager: Skipping manifest association check for null package. SourceUid: -1, SourcePkg: null, TargetUid: 10169, TargetPkg: com.google.android.youtube
+09-10 20:48:40.408  1558  2692 I cn_CronetUrlRequestContext: destroyNativeStreamLocked org.chromium.net.impl.CronetBidirectionalStream@302874b
+09-10 20:48:40.410  1558  2720 I NotificationsModuleTask: (REDACTED) Registering accounts to Chime Failed & not rescheduled for later. registration reason = %s
+09-10 20:48:40.412  1258  2537 I NetworkScheduler.Stats: (REDACTED) Task %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+09-10 20:48:40.414  1558  1558 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.notifications.registration.service.NotificationsRegistrationTaskBoundService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsInternalBoundBrokerService }
+09-10 20:48:40.424  1258  1258 D BoundBrokerSvc: onBind: Intent { act=com.google.android.gms.gmscompliance.sync.BackgroundSyncGmsTaskService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentInternalBoundBrokerService }
+09-10 20:48:40.424  1258  1258 D BoundBrokerSvc: Loading bound service for intent: Intent { act=com.google.android.gms.gmscompliance.sync.BackgroundSyncGmsTaskService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentInternalBoundBrokerService }
+09-10 20:48:40.425  1258  1317 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+09-10 20:48:40.517  1718  2106 I Bugle   : TelephonyManagerFactory: Returning per-subscription TelephonyManager (>= N) subscription{id:1}
+09-10 20:48:40.519  1718  2106 I Bugle   : pSIM transferStatus is 0 [CONTEXT sub_id=1 ]
+09-10 20:48:40.525  1718  2106 I RcsAvailabilityCache: Cached availability not found for simId: redacted-pii:sim_id[chars:20,last3:897]
+09-10 20:48:40.528   651   731 W OverlayManager: service 'idmap' died
+09-10 20:48:40.531  1718  1739 V ClearcutMetricXmitter: Transmission is done.
+09-10 20:48:40.532  1718  1739 V ClearcutMetricXmitter: Transmission is done.
+09-10 20:48:40.649  3442  3495 W GnpSdk  : Job finished with permanent failure. Job ID: 'GNP_SDK_JOB::no_account::15', key: 'GNP_REGISTRATION'
+09-10 20:48:40.649  3442  3495 W GnpSdk  : wxy: HTTP Error Code: 400
+09-10 20:48:40.649  3442  3495 W GnpSdk  : 	at wxx.a(PG:23)
+09-10 20:48:40.649  3442  3495 W GnpSdk  : 	at xei.f(PG:246)
+09-10 20:48:40.649  3442  3495 W GnpSdk  : 	at xeg.b(PG:13)
+09-10 20:48:40.649  3442  3495 W GnpSdk  : 	at bqci.ep(PG:11)
+09-10 20:48:40.649  3442  3495 W GnpSdk  : 	at bqip.run(PG:107)
+09-10 20:48:40.649  3442  3495 W GnpSdk  : 	at tkf.run(PG:7)
+09-10 20:48:40.649  3442  3495 W GnpSdk  : 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+09-10 20:48:40.649  3442  3495 W GnpSdk  : 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+09-10 20:48:40.649  3442  3495 W GnpSdk  : 	at pzz.run(PG:666)
+09-10 20:48:40.649  3442  3495 W GnpSdk  : 	at java.lang.Thread.run(Thread.java:1571)
+09-10 20:48:40.649  3442  3495 W GnpSdk  : 	at tlb.run(PG:61)
+09-10 20:48:40.677  2140  2140 I Finsky  : [2] [PLUS] Received response
+09-10 20:48:40.685  2140  2396 I Finsky  : [47] [PLUS] Successfully updated PayloadValueStore
+09-10 20:48:40.685  2140  2444 I Finsky  : [53] [PLUS] Sync complete, number synced: 1, number failed: 0
+09-10 20:48:40.685  2140  2459 I Finsky  : [56] [PLUS] Syncing 0 train(s)
+09-10 20:48:40.686  2140  2459 I Finsky  : [56] [PLUS] Sync complete, number synced: 0, number failed: 0
+09-10 20:48:40.686  2140  2459 I Finsky  : [56] Syncing device attributes was successful when fetching experiments.
+09-10 20:48:40.686  2140  2444 I Finsky  : [53] SCH: jobFinished: 37-15. TimeElapsed: 2779ms.
+09-10 20:48:40.686  2140  2444 I Finsky  : [53] WM::SCH: Logging work end for 37-15
+09-10 20:48:40.686  2140  2371 I Finsky  : [45] Phixit: Maybe start downgrading Phenotype database schema...
+09-10 20:48:40.686  2140  2444 I Finsky  : [53] [PLUS] Syncing 1 train(s)
+09-10 20:48:40.686  2140  2444 I Finsky  : [53] [PLUS] Sending payloads for account: [2fKVkThB4QBVOwc88U06EJ4S6Yyqenathz2XlaLEUMg]
+09-10 20:48:40.692  2140  2140 I Finsky  : [2] SCH: Skip running other jobs while hygiene is running
+09-10 20:48:40.693  2140  2371 I Finsky  : [45] Phixit: Time (us): 7731
+09-10 20:48:40.695  2140  2453 I Finsky  : [55] SCH: Scheduling phonesky job Id: 26-1414141414, CT: 1789028684956, Constraints: [{ L: 43200000, D: 44100000, C: CHARGING_NONE, I: IDLE_NONE, N: NET_NONE, B: BATTERY_ANY }]
+09-10 20:48:40.698  2140  2444 I Finsky  : [53] SCH: Scheduling 1 system job(s)
+09-10 20:48:40.698  2140  2444 W JobInfo : Job 'com.android.vending/com.google.android.finsky.scheduler.process.mainimpl.PhoneskyJobServiceMain#9255' has a deadline with no functional constraints. The deadline won't improve job execution latency. Consider removing the deadline.
+09-10 20:48:40.698  2140  2444 I Finsky  : [53] SCH: Scheduling system job Id: 9255, L: 18364258, D: 19264258, C: false, I: false, N: 0
+09-10 20:48:40.698   651  1840 W JobInfo : Job 'com.android.vending/com.google.android.finsky.scheduler.process.mainimpl.PhoneskyJobServiceMain#9255' has a deadline with no functional constraints. The deadline won't improve job execution latency. Consider removing the deadline.
+09-10 20:48:40.698  2140  2633 I HeterodyneSyncer: Removed 0 invalid users
+09-10 20:48:40.700  2140  3134 I Finsky  : [87] SCH: job service finished with id 9247.
+09-10 20:48:40.709  2140  2633 I HeterodyneSyncer: Syncing with Heterodyne. Reason: 1
+09-10 20:48:40.709  2140  2633 I Finsky  : [63] Sending Heterodyne sync request for package com.android.vending
+09-10 20:48:40.946   651  2005 W ApplicationInfo: Large ApplicationInfo parcel: size=19924 package=com.google.android.googlequicksearchbox sharedLibs=3 resDirs=1 overlayPaths=1
+09-10 20:48:40.946   651  2005 W PackageInfo: Large parcel: size=20184 pkg=com.google.android.googlequicksearchbox uid=10151 prevAllowSquashing=false
+09-10 20:48:40.956  1913  1980 V ClearcutMetricXmitter: Transmission is done.
+09-10 20:48:41.036  2140  2140 I Finsky  : [2] [PLUS] Received response
+09-10 20:48:41.040  2140  2406 I Finsky  : [49] [PLUS] Successfully updated PayloadValueStore
+09-10 20:48:41.040  2140  2444 I Finsky  : [53] [PLUS] Sync complete, number synced: 1, number failed: 0
+09-10 20:48:41.046  1258  3379 I cn_CronetUrlRequestContext: destroyNativeStreamLocked org.chromium.net.impl.CronetBidirectionalStream@f3ccaeb
+09-10 20:48:41.046  1258  2537 W guvo    : Primes not initialized, returning default (no-op) Primes instance which will ignore all calls. Please call Primes.initialize(...) before using any Primes API.
+09-10 20:48:41.050  1258  1317 I NetworkScheduler.Stats: (REDACTED) Task %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+09-10 20:48:41.050  1258  1258 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.gmscompliance.sync.BackgroundSyncGmsTaskService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentInternalBoundBrokerService }
+09-10 20:48:41.051  1558  2720 W ChimeraUtils: Module com.google.android.gms.gmscompliance missing resource null(0)
+09-10 20:48:41.055  1258  3330 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+09-10 20:48:41.058  1258  1258 D BoundBrokerSvc: onRebind: Intent { act=com.google.android.gms.scheduler.standalone.housekeeping.HousekeepingTrainTaskService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentInternalBoundBrokerService }
+09-10 20:48:41.058  1258  1258 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.scheduler.standalone.housekeeping.HousekeepingTrainTaskService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentInternalBoundBrokerService }
+09-10 20:48:41.059  1258  2385 I NetworkScheduler.Stats: (REDACTED) Task %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+09-10 20:48:41.064  1258  1258 D BoundBrokerSvc: onRebind: Intent { act=com.google.android.gms.scheduler.standalone.housekeeping.HousekeepingTrainTaskService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentInternalBoundBrokerService }
+09-10 20:48:41.065  1258  2385 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+09-10 20:48:41.066  1258  1258 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.scheduler.standalone.housekeeping.HousekeepingTrainTaskService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentInternalBoundBrokerService }
+09-10 20:48:41.066  1258  2385 I NetworkScheduler.Stats: (REDACTED) Task %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+09-10 20:48:41.070  1258  1258 D BoundBrokerSvc: onRebind: Intent { act=com.google.android.gms.scheduler.standalone.housekeeping.HousekeepingTrainTaskService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentInternalBoundBrokerService }
+09-10 20:48:41.070  1258  2385 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+09-10 20:48:41.074  1558  1558 D BoundBrokerSvc: onBind: Intent { act=com.google.android.gms.smartdevice.logging.CleanBufferedLogsService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsInternalBoundBrokerService }
+09-10 20:48:41.074  1558  1558 D BoundBrokerSvc: Loading bound service for intent: Intent { act=com.google.android.gms.smartdevice.logging.CleanBufferedLogsService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsInternalBoundBrokerService }
+09-10 20:48:41.076  1258  2537 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+09-10 20:48:41.077  1558  1927 I SmartDevice: [CleanBufferedLogsService] Running task upload_buffered_logs_periodic
+09-10 20:48:41.078  1558  1927 I ConsentLogging: [LoggingStore] No events available for subdirectory
+09-10 20:48:41.078  1558  1927 W SmartDevice: [SmartDeviceBufferedLogs] No buffered logs for source SMART_SETUP after SUW is complete
+09-10 20:48:41.078  1558  1927 I ConsentLogging: [LoggingStore] No events available for subdirectory
+09-10 20:48:41.078  1558  1927 W SmartDevice: [SmartDeviceBufferedLogs] No buffered logs for source ANDROID_AUTH after SUW is complete
+09-10 20:48:41.078  1258  1317 I NetworkScheduler.Stats: (REDACTED) HousekeepingTask %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+09-10 20:48:41.078  1558  1558 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.smartdevice.logging.CleanBufferedLogsService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsInternalBoundBrokerService }
+09-10 20:48:41.081  1558  1558 D BoundBrokerSvc: onBind: Intent { act=com.google.android.gms.semanticlocationhistory.pulp.PulpMddMaintenanceService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsInternalBoundBrokerService }
+09-10 20:48:41.081  1558  1558 D BoundBrokerSvc: Loading bound service for intent: Intent { act=com.google.android.gms.semanticlocationhistory.pulp.PulpMddMaintenanceService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsInternalBoundBrokerService }
+09-10 20:48:41.082  1258  1317 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+09-10 20:48:41.089  1258  2537 I NetworkScheduler.Stats: (REDACTED) HousekeepingTask %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+09-10 20:48:41.089  1558  1558 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.semanticlocationhistory.pulp.PulpMddMaintenanceService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsInternalBoundBrokerService }
+09-10 20:48:41.092  1558  1558 D BoundBrokerSvc: onBind: Intent { act=com.google.android.gms.semanticlocationhistory.pulp.PulpMddDownloadScheduleService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsInternalBoundBrokerService }
+09-10 20:48:41.092  1558  1558 D BoundBrokerSvc: Loading bound service for intent: Intent { act=com.google.android.gms.semanticlocationhistory.pulp.PulpMddDownloadScheduleService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsInternalBoundBrokerService }
+09-10 20:48:41.092  1258  2505 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+09-10 20:48:41.094  1258  1317 I NetworkScheduler.Stats: (REDACTED) HousekeepingTask %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+09-10 20:48:41.094  1558  1558 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.semanticlocationhistory.pulp.PulpMddDownloadScheduleService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsInternalBoundBrokerService }
+09-10 20:48:41.095  1258  3330 I NetworkScheduler.Stats: (REDACTED) Task %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+09-10 20:48:41.096  1258  1258 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.scheduler.standalone.housekeeping.HousekeepingTrainTaskService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentInternalBoundBrokerService }
+09-10 20:48:41.101  1258  1258 D BoundBrokerSvc: onRebind: Intent { act=com.google.android.gms.scheduler.standalone.housekeeping.HousekeepingTrainTaskService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentInternalBoundBrokerService }
+09-10 20:48:41.102  1258  2385 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+09-10 20:48:41.105  1558  1558 D BoundBrokerSvc: onBind: Intent { act=com.google.android.gms.threadnetwork.credentials.firstparty.BorderRouterSyncBoundService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsInternalBoundBrokerService }
+09-10 20:48:41.105  1558  1558 D BoundBrokerSvc: Loading bound service for intent: Intent { act=com.google.android.gms.threadnetwork.credentials.firstparty.BorderRouterSyncBoundService.ACTION_TASK_READY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsInternalBoundBrokerService }
+09-10 20:48:41.105  1258  1317 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+09-10 20:48:41.106  1558  1927 I GmsThreadNetwork: [BorderRouterSyncBoundService] Border Router sync service run task [CONTEXT service_id=305 ]
+09-10 20:48:41.106  1258  1258 D BoundBrokerSvc: onBind: Intent { act=com.google.android.gms.mdns.service.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentApiService }
+09-10 20:48:41.106  1258  1258 D BoundBrokerSvc: Loading bound service for intent: Intent { act=com.google.android.gms.mdns.service.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentApiService }
+09-10 20:48:41.108   651   816 D ConnectivityService: NetReassign [no changes] [c 0] [a 0] [i 0]
+09-10 20:48:41.108   651   816 D ConnectivityService: NetReassign [no changes] [c 0] [a 0] [i 0]
+09-10 20:48:41.108  1558  1927 I GmsThreadNetwork: [BorderRouterSynchronizer] Start syncing 1P Border Routers [CONTEXT service_id=305 ]
+09-10 20:48:41.110   651   731 I WifiService: acquireMulticastLock uid=10223 lockTag=MdnsServiceBrowserImpl
+09-10 20:48:41.110  1558  1614 I MdnsServiceBrowser: (REDACTED) registering %s
+09-10 20:48:41.111  1558  2720 I GmsThreadNetwork: [BorderAgentScannerImpl] Started mDNS service browser [CONTEXT service_id=305 ]
+09-10 20:48:41.112  1009  1182 D IpClient.wlan0: set max DTIM multiplier to 1
+09-10 20:48:41.114   651   819 I serviceDiscovery: [MdnsDiscoveryManager] Registering listener for serviceType: _meshcop._udp.local
+09-10 20:48:41.114   651   810 E WifiStaIfaceAidlImpl: setDtimMultiplier failed with service-specific exception: android.os.ServiceSpecificException:  (code 4)
+09-10 20:48:41.163  2245  3763 D ProfileInstaller: Installing profile for com.geowatershed.app
+09-10 20:48:41.197  1161  1161 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1435 android.content.ContextWrapper.sendBroadcast:509 android.content.ContextWrapper.sendBroadcast:509 com.android.settings.fuelgauge.batteryusage.BootBroadcastReceiver.$r8$lambda$NYbzklSftprvatAlISPsV0wCKqc:86 com.android.settings.fuelgauge.batteryusage.BootBroadcastReceiver$$ExternalSyntheticLambda0.run:0 
+09-10 20:48:41.198  1161  1161 D BootBroadcastReceiver: refresh periodic job from action=com.android.settings.battery.action.PERIODIC_JOB_RECHECK
+09-10 20:48:41.199  1161  1254 D PeriodicJobManager: schedule next alarm job at Sep 10, 2026, 21:00:00
+09-10 20:48:41.206   651   669 E AppOps  : attributionTag UwbCountryCode not declared in manifest of android
+09-10 20:48:41.209  1258  2697 I FusedOrientationManager: Registering orientation client. [CONTEXT service_id=6 ]
+09-10 20:48:41.213  1258  2385 I GmsCoreXrpcWrapper: (REDACTED) Returning a channel provider with trafficStatsTag=%d trafficStatsUid=%d
+09-10 20:48:41.218  1258  2385 I GmsCoreXrpcWrapper: (REDACTED) Returning a channel provider with trafficStatsTag=%d trafficStatsUid=%d
+09-10 20:48:41.218  1258  2385 I GmsCoreVoilaTileGrpc: (REDACTED) xrpc compression enabled: %s
+09-10 20:48:41.218  1258  3149 W PersonalSafety: LastLocation was null: no distance computed [CONTEXT service_id=310 ]
+09-10 20:48:41.219  1258  3149 I PersonalSafety: No scan is running. Not handling location update. [CONTEXT service_id=310 ]
+09-10 20:48:41.220  1258  1767 D nativeloader: Load /data/app/~~yp1DLZ6wCkcGmGmSMQYmAA==/com.google.android.gms-mZU_DkpQGs9oT9-uo5pj9A==/base.apk!/lib/arm64-v8a/libinertial-anchor-jni.so using class loader ns clns-9 (caller=/data/app/~~yp1DLZ6wCkcGmGmSMQYmAA==/com.google.android.gms-mZU_DkpQGs9oT9-uo5pj9A==/base.apk!classes4.dex): ok
+09-10 20:48:41.220   651   731 E JavaBinder: *** Uncaught remote exception! Exceptions are not yet supported across processes. Client PID 1258 UID 10223.
+09-10 20:48:41.220   651   731 E JavaBinder: java.lang.RuntimeException: android.os.RemoteException: Couldn't get targetSdkVersion for package com.android.accelerometergraph
+09-10 20:48:41.220   651   731 E JavaBinder: 	at android.os.Parcel.writeException(Parcel.java:3136)
+09-10 20:48:41.220   651   731 E JavaBinder: 	at android.os.Binder.execTransactInternal(Binder.java:1352)
+09-10 20:48:41.220   651   731 E JavaBinder: 	at android.os.Binder.execTransact(Binder.java:1282)
+09-10 20:48:41.220   651   731 E JavaBinder: Caused by: android.os.RemoteException: Couldn't get targetSdkVersion for package com.android.accelerometergraph
+09-10 20:48:41.220   651   731 E JavaBinder: 	at com.android.server.pm.PackageManagerNative.getTargetSdkVersionForPackage(PackageManagerNative.java:180)
+09-10 20:48:41.220   651   731 E JavaBinder: 	at android.content.pm.IPackageManagerNative$Stub.onTransact(IPackageManagerNative.java:336)
+09-10 20:48:41.220   651   731 E JavaBinder: 	at android.os.Binder.execTransactInternal(Binder.java:1328)
+09-10 20:48:41.220   651   731 E JavaBinder: 	... 1 more
+09-10 20:48:41.222  1258  1753 I FusedOrientationManager: Registering orientation client. [CONTEXT service_id=6 ]
+09-10 20:48:41.223  1258  1722 W GLSUser : [DeviceKeyStore] Cannot load key: Device key file not found.
+09-10 20:48:41.223  1258  1722 W GLSUser : [DeviceKeyStore] Cannot load key: Device key file not found.
+09-10 20:48:41.224  1258  1722 W GLSUser : [DeviceKeyStore] Cannot load key: Device key file not found.
+09-10 20:48:41.224  1258  1722 W GLSUser : [DeviceKeyStore] Cannot load key: Device key file not found.
+09-10 20:48:41.225  1258  1753 I FusedOrientationManager: Unregistering orientation client. [CONTEXT service_id=6 ]
+09-10 20:48:41.226   651   669 W AlarmManager: Unrecognized alarm listener com.android.server.location.gnss.GnssLocationProvider$$ExternalSyntheticLambda14@2622f31
+09-10 20:48:41.226   651   669 W AlarmManager: Unrecognized alarm listener com.android.server.location.gnss.GnssLocationProvider$$ExternalSyntheticLambda13@f153616
+09-10 20:48:41.227  1258  1722 W GLSUser : [DeviceKeyStore] Cannot load key: Device key file not found.
+09-10 20:48:41.227  1258  1722 W GLSUser : [DeviceKeyStore] Cannot load key: Device key file not found.
+09-10 20:48:41.227  1258  1767 W Looper  : Looper already prepared for this thread with a different value for the LOOPER_PREPARE_ALLOW_NON_CALLBACKS option.
+09-10 20:48:41.232  1258  1767 W inertial-anchor: Triggering reinit due to mag declination change
+09-10 20:48:41.252   923   923 D DrawExpandable: expandable check detail:
+09-10 20:48:41.252   923   923 D DrawExpandable:  - isAnimating=false
+09-10 20:48:41.252   923   923 D DrawExpandable:  - showDialog=false
+09-10 20:48:41.252   923   923 D DrawExpandable:  - overlayView=null (isAttached=null)
+09-10 20:48:41.252   923   923 D DrawExpandable:  - localView=androidx.compose.ui.platform.AndroidComposeView{24309e5 VFED..... ......I. 0,0-0,0 aid=26} (isAttached=true)
+09-10 20:48:41.252   923   923 D DrawExpandable:  - composeViewRoot=androidx.compose.ui.platform.AndroidComposeView{24309e5 VFED..... ......I. 0,0-0,0 aid=26} (isAttached=true)
+09-10 20:48:41.252   923   923 D DrawExpandable:  - dynamicTargetResolutionEnabled=true
+09-10 20:48:41.252   923   923 D DrawExpandable:  - controller.overlay=null
+09-10 20:48:41.256   923   923 D DrawExpandable: expandable check detail:
+09-10 20:48:41.256   923   923 D DrawExpandable:  - isAnimating=false
+09-10 20:48:41.256   923   923 D DrawExpandable:  - showDialog=false
+09-10 20:48:41.256   923   923 D DrawExpandable:  - overlayView=null (isAttached=null)
+09-10 20:48:41.256   923   923 D DrawExpandable:  - localView=androidx.compose.ui.platform.AndroidComposeView{cb824b3 VFED..... ......I. 0,0-0,0 aid=28} (isAttached=true)
+09-10 20:48:41.256   923   923 D DrawExpandable:  - composeViewRoot=androidx.compose.ui.platform.AndroidComposeView{cb824b3 VFED..... ......I. 0,0-0,0 aid=28} (isAttached=true)
+09-10 20:48:41.256   923   923 D DrawExpandable:  - dynamicTargetResolutionEnabled=true
+09-10 20:48:41.256   923   923 D DrawExpandable:  - controller.overlay=null
+09-10 20:48:41.284   651  1840 E JobScheduler.JobStatus: App com.google.android.contacts became active but still in NEVER bucket
+09-10 20:48:41.303  3442  3498 W JobInfo : Requested important-while-foreground flag for job19 is ignored and takes no effect
+09-10 20:48:41.317  1258  1722 I FontLog : (REDACTED) Received query %s, URI %s
+09-10 20:48:41.317  1258  1722 I FontLog : (REDACTED) Query [%s] resolved to %s
+09-10 20:48:41.319  1258  1722 I FontLog : (REDACTED) Fetch %s end status %s
+09-10 20:48:41.320  1258  1722 I FontLog : (REDACTED) Pulling font file for id = %d, cache size = %d
+09-10 20:48:41.321  3442  3553 I HWUI    : Using FreeType backend (prop=Auto)
+09-10 20:48:41.322  1258  1722 I FontLog : (REDACTED) Pulling font file for id = %d, cache size = %d
+09-10 20:48:41.324  3442  3498 W JobInfo : Requested important-while-foreground flag for job22 is ignored and takes no effect
+09-10 20:48:41.453  1258  3379 I cn_CronetUrlRequestContext: destroyNativeStreamLocked org.chromium.net.impl.CronetBidirectionalStream@ab059cb
+09-10 20:48:41.459   651  2005 D WindowManager: setClientSurface Surface(name=VRI-ScreenDecorOverlay#110)/@0x86c0384 for 5171e5e ScreenDecorOverlay
+09-10 20:48:41.460   923  1451 I Surface : Creating surface for consumer unnamed-923-4 with slotExpansion=1 for 64 slots
+09-10 20:48:41.460   923  1451 I Surface : Creating surface for consumer VRI[ScreenDecorOverlay]#4(BLAST Consumer)4 with slotExpansion=1 for 64 slots
+09-10 20:48:41.461  1258  3379 I cn_CronetUrlRequestContext: destroyNativeStreamLocked org.chromium.net.impl.CronetBidirectionalStream@5503743
+09-10 20:48:41.463   651   901 D UwbCountryCode: Set location country code to: IN
+09-10 20:48:41.463   651   901 I UwbCountryCode: Ignoring already set country code: US
+09-10 20:48:41.467  1258  3379 I cn_CronetUrlRequestContext: destroyNativeStreamLocked org.chromium.net.impl.CronetBidirectionalStream@4d021c0
+09-10 20:48:41.467  1258  2683 W GmsWeatherProviderContr: Failed to fetch weather tile
+09-10 20:48:41.467  1258  2683 W GmsWeatherProviderContr: jtze: INVALID_ARGUMENT: Application credential header not valid. Please fix the client to pass a valid application credential header.
+09-10 20:48:41.467  1258  2683 W GmsWeatherProviderContr: 	at hdrc.a(:com.google.android.gms@263234035@26.32.34 (260400-968093310):44)
+09-10 20:48:41.467  1258  2683 W GmsWeatherProviderContr: 	at hetr.g(:com.google.android.gms@263234035@26.32.34 (260400-968093310):15)
+09-10 20:48:41.467  1258  2683 W GmsWeatherProviderContr: 	at hetp.run(:com.google.android.gms@263234035@26.32.34 (260400-968093310):48)
+09-10 20:48:41.467  1258  2683 W GmsWeatherProviderContr: 	at bnli.d(:com.google.android.gms@263234035@26.32.34 (260400-968093310):50)
+09-10 20:48:41.467  1258  2683 W GmsWeatherProviderContr: 	at bnli.c(:com.google.android.gms@263234035@26.32.34 (260400-968093310):6)
+09-10 20:48:41.467  1258  2683 W GmsWeatherProviderContr: 	at bnli.run(:com.google.android.gms@263234035@26.32.34 (260400-968093310):33)
+09-10 20:48:41.467  1258  2683 W GmsWeatherProviderContr: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+09-10 20:48:41.467  1258  2683 W GmsWeatherProviderContr: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+09-10 20:48:41.467  1258  2683 W GmsWeatherProviderContr: 	at bnri.run(:com.google.android.gms@263234035@26.32.34 (260400-968093310):8)
+09-10 20:48:41.467  1258  2683 W GmsWeatherProviderContr: 	at java.lang.Thread.run(Thread.java:1571)
+09-10 20:48:41.475   489   489 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+09-10 20:48:41.475   489   489 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+09-10 20:48:41.475   489   489 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+09-10 20:48:41.475   489   489 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+09-10 20:48:41.493   489   489 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+09-10 20:48:41.493   489   489 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+09-10 20:48:41.493   489   489 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+09-10 20:48:41.493   489   489 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+09-10 20:48:41.493   489   489 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+09-10 20:48:41.493   489   489 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+09-10 20:48:41.508   489   489 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+09-10 20:48:41.520   489   535 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+09-10 20:48:41.542   489   489 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+09-10 20:48:41.558   489   489 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+09-10 20:48:41.575   489   489 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+09-10 20:48:41.592   489   489 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+09-10 20:48:41.608   489   489 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+09-10 20:48:41.620   489   535 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+09-10 20:48:41.625   489   489 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+09-10 20:48:41.639  1029  1029 I HidDeviceService: unregisterAppUid(): uid=10194
+09-10 20:48:41.639  1029  1029 W HidDeviceService: unregisterAppUid(): caller UID doesn't match user UID
+09-10 20:48:41.639  1029  1029 I HidDeviceService: unregisterAppUid(): uid=10162
+09-10 20:48:41.639  1029  1029 W HidDeviceService: unregisterAppUid(): caller UID doesn't match user UID
+09-10 20:48:41.641   489   489 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+09-10 20:48:41.654  1029  1220 I bluetooth: system/gd/hci/le_address_manager.cc:269 unregister_client: Client unregistered
+09-10 20:48:41.654  1029  1220 I bluetooth: system/gd/hci/le_address_manager.cc:284 unregister_client: Cancelled address rotation alarm
+09-10 20:48:41.665  1029  1220 I bluetooth: system/gd/hci/le_address_manager.cc:557 GetNextPrivateAddressIntervalRange: client=LeAddressManager, nonwake=7m0s, wake=14m1s
+09-10 20:48:41.665  1029  1220 I bluetooth: system/gd/hci/le_address_manager.cc:250 register_client: Scheduled address rotation for first client registered
+09-10 20:48:41.665  1029  1220 I bluetooth: system/gd/hci/le_address_manager.cc:254 register_client: Client registered
+09-10 20:48:41.683  1258  1258 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.dtdi.identity.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentApiService }
+09-10 20:48:41.707   651  3778 I SqliteStorage: Database "cross_device_sync_global_db" is closed!
+09-10 20:48:41.721   489   535 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+09-10 20:48:41.807  3442  3448 W android.youtube: Missing inline cache for int awxl.a(java.lang.Object)
+09-10 20:48:41.857  3262  3262 I libbinder.AidlLazyServiceRegistrar: Process has 0 (of 1 available) client(s) in use after notification android.hardware.drm.IDrmFactory/clearkey has clients: 0
+09-10 20:48:41.857  3262  3262 I libbinder.AidlLazyServiceRegistrar: Trying to shut down the service. No clients in use for any service in process.
+09-10 20:48:41.857  3262  3262 I libbinder.AidlLazyServiceRegistrar: Unregistered all clients and exiting
+09-10 20:48:41.918   651   810 E WifiDataStall: Ignore this poll. newStats: null txLinkSpeedMbps: 1 rxLinkSpeedMbps: 2 rssi: -50 connectionCapabilities: com.android.server.wifi.WifiNative$ConnectionCapabilities@5a55bd5
+09-10 20:48:41.919   651   839 I AdbWifiNetworkMonitor: Wi-Fi network available
+09-10 20:48:41.919   651   839 I AdbWifiNetworkMonitor: Received the same Wi-Fi SSID. Ignoring.
+09-10 20:48:41.922  1258  2320 I NullBinder: NullBinder for android.net.action.RECOMMEND_NETWORKS triggering remote TransactionTooLargeException due to Service without Chimera impl, calling uid: 1000, calling pid: 0
+09-10 20:48:41.922  1258  2320 W libbinder.Binder: Large reply transaction of 1056768 bytes, interface descriptor , function: UNKNOWN_FUNCTION_NAME, code: 1, flags: 17
+09-10 20:48:41.922  1363  2409 D WM-WorkConstraintsTrack: NetworkRequestConstraintController onCapabilitiesChanged callback
+09-10 20:48:41.923  2268  2678 D WM-WorkConstraintsTrack: NetworkRequestConstraintController onCapabilitiesChanged callback
+09-10 20:48:41.925  3192  3257 D WM-WorkConstraintsTrack: NetworkRequestConstraintController onCapabilitiesChanged callback
+09-10 20:48:41.925  2420  2813 D WM-WorkConstraintsTrack: NetworkRequestConstraintController onCapabilitiesChanged callback
+09-10 20:48:41.926  2140  2140 W JobService: onNetworkChanged() not implemented in com.google.android.finsky.scheduler.process.mainimpl.PhoneskyJobServiceMain. Must override in a subclass.
+09-10 20:48:41.926  1718  2525 I BugleRcsEngine: handleMessage processing message:[NOTIFY_UPTIME_IGNORE_STATE_CHANGED] with [non-null]:RcsEngineImpl reference [CONTEXT log_prefix="RcsEngineImpl[DUAL_REG]:[90dab197-1d91]>Handler" thread_id=64 ]
+09-10 20:48:41.926  1718  2180 I BugleRcsEngine: Connected state: [1], networkType: [WIFI] [CONTEXT thread_id=57 ]
+09-10 20:48:41.927  1258  1753 I NearbyMediums: Wifi changed new SSID: "AndroidWifi"
+09-10 20:48:41.927  1258  1753 I NearbyMediums: WifiLanConnectivityInfo is not changed, skip notify.
+09-10 20:48:41.927   651   816 D ConnectivityService: NetReassign [no changes] [c 0] [a 0] [i 1]
+09-10 20:48:41.930  1718  2525 I BugleRcsEngine: No RCS Configuration was found in Bugle for simID: redacted-pii:sim_id[chars:20,last3:897] [CONTEXT log_prefix="ProvisioningEngineDataRetriever" thread_id=64 ]
+09-10 20:48:42.037  2140  2633 I Finsky  : [63] Received Heterodyne sync response. StatusCode=200
+09-10 20:48:42.062  2140  2633 I HeterodyneSyncer: Sync completed. fetchReason: PERIODIC, fetchPackageName: com.android.vending, syncErrorType: UNSET, individual sync errors: .
+09-10 20:48:42.062  2140  2633 I HeterodyneSyncer: Finished notifying packages after sync. syncLatency: 1366
+09-10 20:48:42.062  2140  2371 I Finsky  : [45] Phixit: Maybe start upgrading Phenotype database schema...
+09-10 20:48:42.062  2140  2371 I Finsky  : [45] Phixit: Time (us): 28
+09-10 20:48:42.066  2140  2633 I Finsky  : [63] Triggered update for experiment package com.google.android.finsky.regular.
+09-10 20:48:42.068  2140  3115 I RegisterSyncOperation: Register sync called by com.android.vending, syncing since something changed
+09-10 20:48:42.068  2140  3115 I HeterodyneSyncer: Removed 0 invalid users
+09-10 20:48:42.071  2140  3115 I HeterodyneSyncer: Syncing with Heterodyne. Reason: 15
+09-10 20:48:42.071  2140  3115 I Finsky  : [83] Sending Heterodyne sync request for package com.google.android.finsky.regular
+09-10 20:48:42.288   651  1840 W ApplicationInfo: Large ApplicationInfo parcel: size=19924 package=com.google.android.googlequicksearchbox sharedLibs=3 resDirs=1 overlayPaths=1
+09-10 20:48:42.288   651  1840 W PackageInfo: Large parcel: size=20184 pkg=com.google.android.googlequicksearchbox uid=10151 prevAllowSquashing=false
+09-10 20:48:42.297  2268  3005 V ClearcutMetricXmitter: Transmission is done.
+09-10 20:48:42.297  2268  3005 V ClearcutMetricXmitter: Transmission is done.
+09-10 20:48:42.298  2268  3005 V ClearcutMetricXmitter: Transmission is done.
+09-10 20:48:42.359   513   513 I adbd    : adbd service requested 'exec:screencap '-p''
+09-10 20:48:42.412  1258  1753 I GetConfigSnapshotOp: (REDACTED) Succeeded but not registered: %s
+09-10 20:48:42.425  1258  1753 I NearbySharing: Network state changed: NetworkState(isRestricted=false, isOnline=true, isCongested=false, isMetered=false, isWifiConnected=true)
+09-10 20:48:42.442  3783  3783 W libbinder.BackendUnifiedServiceManager: Thread Pool max thread count is 0. Cannot cache binder as linkToDeath cannot be implemented. serviceName: SurfaceFlingerAIDL
+09-10 20:48:42.442  3783  3783 W libbinder.BpBinder: Linking to death on android.gui.ISurfaceComposer but there are no threads (yet?) listening to incoming transactions. See ProcessState::startThreadPool and ProcessState::setThreadPoolMaxThreadCount. Generally you should setup the binder threadpool before other initialization steps.
+09-10 20:48:42.442  3783  3783 W libbinder.ProcessState: Extra binder thread started, but 0 threads requested. Do not use *startThreadPool when zero threads are requested.
+09-10 20:48:42.443   489   535 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+09-10 20:48:42.443   489   535 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+09-10 20:48:42.443   489   535 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+09-10 20:48:42.454  3783  3785 W libc    : Access denied finding property "vendor.mesa.virtgpu.kumquat"
+09-10 20:48:42.513   651  1840 W JobInfo : Job 'com.google.android.settings.intelligence/.modules.routines.impl.worker.RoutinesJobIntentService#1728' has a deadline with no functional constraints. The deadline won't improve job execution latency. Consider removing the deadline.
+09-10 20:48:42.527   513   513 I adbd    : adbd service requested 'shell,v2,TERM=xterm-256color:export ANDROID_LOG_TAGS=''; exec logcat '-d' '-t' '400''

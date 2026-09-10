@@ -3077,25 +3077,6 @@
                     }
                 },
                 {
-                    "source": "/Users/bhavyakumarsoni/Downloads/android 2/app/src/main/res/values/themes.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "5",
-                        "endColumns": "12",
-                        "endOffsets": "298"
-                    },
-                    "to": {
-                        "startLines": "1905",
-                        "startColumns": "4",
-                        "startOffsets": "126976",
-                        "endLines": "1908",
-                        "endColumns": "12",
-                        "endOffsets": "127219"
-                    }
-                },
-                {
                     "source": "/Users/bhavyakumarsoni/.gradle/caches/8.9/transforms/786c332627c04ffb06220dec6643a503/transformed/savedstate-1.2.1/res/values/values.xml",
                     "from": {
                         "startLines": "2",
@@ -3149,7 +3130,7 @@
                     }
                 },
                 {
-                    "source": "/Users/bhavyakumarsoni/Downloads/android 2/app/src/main/res/values/colors.xml",
+                    "source": "/Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/res/values/colors.xml",
                     "from": {
                         "startLines": "4,3,2",
                         "startColumns": "4,4,4",
@@ -3163,6 +3144,25 @@
                         "startOffsets": "4080,5940,6392",
                         "endColumns": "56,44,51",
                         "endOffsets": "4132,5980,6439"
+                    }
+                },
+                {
+                    "source": "/Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/res/values/themes.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "298"
+                    },
+                    "to": {
+                        "startLines": "1905",
+                        "startColumns": "4",
+                        "startOffsets": "126976",
+                        "endLines": "1908",
+                        "endColumns": "12",
+                        "endOffsets": "127219"
                     }
                 },
                 {
@@ -3293,23 +3293,6 @@
                     }
                 },
                 {
-                    "source": "/Users/bhavyakumarsoni/Downloads/android 2/app/src/main/res/values/strings.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "49",
-                        "endOffsets": "100"
-                    },
-                    "to": {
-                        "startLines": "335",
-                        "startColumns": "4",
-                        "startOffsets": "21536",
-                        "endColumns": "49",
-                        "endOffsets": "21581"
-                    }
-                },
-                {
                     "source": "/Users/bhavyakumarsoni/.gradle/caches/8.9/transforms/400db9307b09779fab0b691f09fb55e4/transformed/navigation-runtime-2.7.7/res/values/values.xml",
                     "from": {
                         "startLines": "2,3,10,13",
@@ -3415,6 +3398,23 @@
                         "startOffsets": "18899",
                         "endColumns": "49",
                         "endOffsets": "18944"
+                    }
+                },
+                {
+                    "source": "/Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/res/values/strings.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "49",
+                        "endOffsets": "100"
+                    },
+                    "to": {
+                        "startLines": "335",
+                        "startColumns": "4",
+                        "startOffsets": "21536",
+                        "endColumns": "49",
+                        "endOffsets": "21581"
                     }
                 },
                 {

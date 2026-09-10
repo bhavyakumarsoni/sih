@@ -138,3 +138,35 @@ fun AddPhotoButton(label: String, forSet: PhotoSet, onClick: () -> Unit, modifie
         )
     }
 }
+
+/**
+ * Stands in for the missing half of a before/after pair. Deliberately the
+ * same dashed, neutral treatment used for unavailable indicators — an
+ * un-taken photo is missing evidence, not a failure, and never shows red.
+ */
+@Composable
+fun MissingPhotoSlot(forSet: PhotoSet, modifier: Modifier = Modifier) {
+    val isBefore = forSet == PhotoSet.Before
+    Box(
+        modifier = modifier
+            .fillMaxWidth()
+            .height(150.dp)
+            .dashedBorder(
+                if (isBefore) GWColors.DashedBorderStrong else GWColors.AfterDashedBorder,
+                strokeWidth = 1.5.dp,
+                cornerRadius = 13.dp,
+            ),
+        contentAlignment = Alignment.Center,
+    ) {
+        Text(
+            if (isBefore) "no BEFORE photo\nfor this pair" else "no AFTER photo\nfor this pair",
+            fontFamily = PlexMono,
+            fontWeight = FontWeight.Medium,
+            fontSize = 10.sp,
+            letterSpacing = 0.06.em,
+            lineHeight = 15.sp,
+            color = GWColors.Ink400,
+            textAlign = TextAlign.Center,
+        )
+    }
+}

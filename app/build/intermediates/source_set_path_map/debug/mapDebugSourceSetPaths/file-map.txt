@@ -62,10 +62,10 @@ com.geowatershed.app-material3-release-60 /Users/bhavyakumarsoni/.gradle/caches/
 com.geowatershed.app-savedstate-ktx-1.2.1-61 /Users/bhavyakumarsoni/.gradle/caches/8.9/transforms/f6794163666710ac38d7cec68ce67a59/transformed/savedstate-ktx-1.2.1/res
 com.geowatershed.app-sqlite-2.4.0-62 /Users/bhavyakumarsoni/.gradle/caches/8.9/transforms/f8b15be19421169936ff564dca6c1384/transformed/sqlite-2.4.0/res
 com.geowatershed.app-activity-compose-1.9.1-63 /Users/bhavyakumarsoni/.gradle/caches/8.9/transforms/fd670d413f63d7ddf301717b528061b7/transformed/activity-compose-1.9.1/res
-com.geowatershed.app-pngs-64 /Users/bhavyakumarsoni/Downloads/android 2/app/build/generated/res/pngs/debug
-com.geowatershed.app-resValues-65 /Users/bhavyakumarsoni/Downloads/android 2/app/build/generated/res/resValues/debug
-com.geowatershed.app-packageDebugResources-66 /Users/bhavyakumarsoni/Downloads/android 2/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
-com.geowatershed.app-packageDebugResources-67 /Users/bhavyakumarsoni/Downloads/android 2/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
-com.geowatershed.app-debug-68 /Users/bhavyakumarsoni/Downloads/android 2/app/build/intermediates/merged_res/debug/mergeDebugResources
-com.geowatershed.app-debug-69 /Users/bhavyakumarsoni/Downloads/android 2/app/src/debug/res
-com.geowatershed.app-main-70 /Users/bhavyakumarsoni/Downloads/android 2/app/src/main/res
+com.geowatershed.app-pngs-64 /Users/bhavyakumarsoni/Documents/GitHub/sih/app/build/generated/res/pngs/debug
+com.geowatershed.app-resValues-65 /Users/bhavyakumarsoni/Documents/GitHub/sih/app/build/generated/res/resValues/debug
+com.geowatershed.app-packageDebugResources-66 /Users/bhavyakumarsoni/Documents/GitHub/sih/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
+com.geowatershed.app-packageDebugResources-67 /Users/bhavyakumarsoni/Documents/GitHub/sih/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
+com.geowatershed.app-debug-68 /Users/bhavyakumarsoni/Documents/GitHub/sih/app/build/intermediates/merged_res/debug/mergeDebugResources
+com.geowatershed.app-debug-69 /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/debug/res
+com.geowatershed.app-main-70 /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/res

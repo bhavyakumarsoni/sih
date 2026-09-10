@@ -20,6 +20,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
+import com.geowatershed.app.data.FactorDirection
+import com.geowatershed.app.data.PriorityExplanation
+import com.geowatershed.app.data.PriorityFactor
 import com.geowatershed.app.data.model.SiteIndicator
 import com.geowatershed.app.ui.theme.GWColors
 import com.geowatershed.app.ui.theme.GWType
@@ -200,5 +203,97 @@ fun RecommendedInterventionCard(
             }
         }
         PrimaryCtaButton(label = ctaLabel, onClick = onCreate, background = GWColors.Green700, height = 64.dp, cornerRadius = 13.dp)
+    }
+}
+
+/**
+ * "Why this is flagged" — the reasoning behind a site's classification, so a
+ * priority score is never a bare number an officer has to take on trust.
+ *
+ * Unavailable indicators are shown here too, in the same dashed treatment
+ * used everywhere else, because what the app does not know is part of the
+ * answer rather than a gap to be quietly skipped.
+ */
+@Composable
+fun WhyFlaggedCard(explanation: PriorityExplanation, modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier
+            .fillMaxWidth()
+            .background(GWColors.NeutralSurface, RoundedCornerShape(16.dp))
+            .border(1.dp, GWColors.NeutralBorder, RoundedCornerShape(16.dp))
+            .padding(18.dp),
+        verticalArrangement = Arrangement.spacedBy(15.dp),
+    ) {
+        SectionLabel("WHY THIS IS FLAGGED")
+        Text(explanation.headline, style = GWType.bodySmall, color = GWColors.Ink700)
+
+        if (explanation.contributing.isNotEmpty()) {
+            Column(verticalArrangement = Arrangement.spacedBy(11.dp)) {
+                explanation.contributing.forEach { factor -> FactorRow(factor) }
+            }
+        }
+
+        if (explanation.unavailable.isNotEmpty()) {
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                Text("NOT WEIGHED — NO DATA", style = GWType.labelSmall, color = GWColors.Ink500)
+                explanation.unavailable.forEach { name ->
+                    Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                        Text(
+                            "–",
+                            style = GWType.labelSmall,
+                            color = GWColors.Ink400,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier
+                                .dashedBorder(GWColors.DashedBorder, strokeWidth = 1.5.dp, cornerRadius = 7.dp)
+                                .padding(horizontal = 9.dp, vertical = 5.dp),
+                        )
+                        Text(name, style = GWType.bodySmall.copy(fontSize = 14.sp), color = GWColors.Ink600)
+                    }
+                }
+            }
+        }
+
+        HorizontalDivider(color = GWColors.DividerHairline, thickness = 1.dp)
+        Text(explanation.insight, style = GWType.bodySmall, color = GWColors.Ink700)
+
+        explanation.caveat?.let { caveat ->
+            Text(
+                caveat,
+                style = GWType.bodySmall.copy(fontSize = 12.5.sp, lineHeight = 17.sp),
+                color = GWColors.Ink600,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(GWColors.MutedRowBg, RoundedCornerShape(10.dp))
+                    .padding(horizontal = 12.dp, vertical = 10.dp),
+            )
+        }
+    }
+}
+
+@Composable
+private fun FactorRow(factor: PriorityFactor) {
+    val (glyph, tint) = when (factor.direction) {
+        FactorDirection.Raises -> "\u2191" to GWColors.SeverityHigh
+        FactorDirection.Lowers -> "\u2193" to GWColors.Green700
+        FactorDirection.Context -> "\u00b7" to GWColors.Ink500
+    }
+    Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+        Text(
+            glyph,
+            style = GWType.badge,
+            color = tint,
+            textAlign = TextAlign.Center,
+            modifier = Modifier
+                .size(24.dp)
+                .background(tint.copy(alpha = 0.12f), CircleShape)
+                .padding(top = 5.dp),
+        )
+        Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(3.dp)) {
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.Bottom) {
+                Text(factor.name, style = GWType.bodyBold.copy(fontSize = 15.sp), color = GWColors.Ink900)
+                Text(factor.reading, style = GWType.dataMonoMedium.copy(fontSize = 13.sp), color = tint)
+            }
+            Text(factor.effect, style = GWType.bodySmall.copy(fontSize = 13.sp, lineHeight = 18.sp), color = GWColors.Ink600)
+        }
     }
 }

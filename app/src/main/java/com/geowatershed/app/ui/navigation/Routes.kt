@@ -6,12 +6,15 @@ object Routes {
     const val CAPTURE = "capture"
     const val SITE_ANALYSIS_PATTERN = "site_analysis/{captureId}"
     const val INTERVENTIONS = "interventions"
+    const val PRIORITY_MAP = "priority_map"
+    const val AI_SETTINGS = "ai_settings"
     const val MONITORING_PATTERN = "monitoring/{interventionId}"
 
     const val GOV_LOGIN = "gov_login"
     const val GOV_DASHBOARD = "gov_dashboard"
     const val GOV_PRIORITY_SITE_PATTERN = "gov_priority_site/{captureId}"
     const val GOV_PIPELINE = "gov_pipeline"
+    const val GOV_PRIORITY_MAP = "gov_priority_map"
     const val GOV_MONITORING_PATTERN = "gov_monitoring/{interventionId}"
 
     fun siteAnalysis(captureId: Long): String = "site_analysis/$captureId"

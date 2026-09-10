@@ -1,13 +1,22 @@
 package com.geowatershed.app.ui.navigation
 
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.geowatershed.app.data.GeoWatershedViewModel
+import com.geowatershed.app.ui.components.AppMode
+import com.geowatershed.app.ui.components.ModeStatusBar
+import com.geowatershed.app.ui.screens.AiSettingsScreen
 import com.geowatershed.app.ui.screens.CaptureScreen
 import com.geowatershed.app.ui.screens.DashboardScreen
 import com.geowatershed.app.ui.screens.EntryScreen
@@ -17,14 +26,30 @@ import com.geowatershed.app.ui.screens.GovernancePipelineScreen
 import com.geowatershed.app.ui.screens.GovernancePrioritySiteScreen
 import com.geowatershed.app.ui.screens.InterventionsScreen
 import com.geowatershed.app.ui.screens.MonitoringScreen
+import com.geowatershed.app.ui.screens.PriorityMapScreen
 import com.geowatershed.app.ui.screens.SiteAnalysisScreen
 
 @Composable
 fun GWNavHost() {
     val navController = rememberNavController()
     val viewModel: GeoWatershedViewModel = viewModel()
+    val captures by viewModel.captures.collectAsState()
 
-    NavHost(navController = navController, startDestination = Routes.ENTRY) {
+    // The mode indicator is driven by the live route rather than by a flag set
+    // at login, so it cannot drift out of step with where the user actually is.
+    val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route
+    val mode = when {
+        currentRoute == null || currentRoute == Routes.ENTRY -> null
+        currentRoute.startsWith("gov_") -> AppMode.Governance
+        else -> AppMode.Field
+    }
+
+    Column(modifier = Modifier.fillMaxSize()) {
+    NavHost(
+        navController = navController,
+        startDestination = Routes.ENTRY,
+        modifier = Modifier.weight(1f),
+    ) {
         composable(Routes.ENTRY) {
             EntryScreen(
                 viewModel = viewModel,
@@ -39,6 +64,7 @@ fun GWNavHost() {
                 viewModel = viewModel,
                 onCaptureImage = { navController.navigate(Routes.CAPTURE) },
                 onViewInterventions = { navController.navigate(Routes.INTERVENTIONS) },
+                onOpenMap = { navController.navigate(Routes.PRIORITY_MAP) },
             )
         }
         composable(Routes.CAPTURE) {
@@ -57,6 +83,20 @@ fun GWNavHost() {
                 captureId = backStackEntry.arguments?.getLong("captureId") ?: 0L,
                 onBack = { navController.popBackStack() },
                 onInterventionCreated = { navController.navigate(Routes.INTERVENTIONS) },
+                onOpenAiSettings = { navController.navigate(Routes.AI_SETTINGS) },
+            )
+        }
+        composable(Routes.AI_SETTINGS) {
+            AiSettingsScreen(
+                viewModel = viewModel,
+                onBack = { navController.popBackStack() },
+            )
+        }
+        composable(Routes.PRIORITY_MAP) {
+            PriorityMapScreen(
+                viewModel = viewModel,
+                onBack = { navController.popBackStack() },
+                onOpenSite = { captureId -> navController.navigate(Routes.siteAnalysis(captureId)) },
             )
         }
         composable(Routes.INTERVENTIONS) {
@@ -94,6 +134,8 @@ fun GWNavHost() {
                 viewModel = viewModel,
                 onOpenSite = { captureId -> navController.navigate(Routes.govPrioritySite(captureId)) },
                 onOpenPipeline = { navController.navigate(Routes.GOV_PIPELINE) },
+                onOpenMap = { navController.navigate(Routes.GOV_PRIORITY_MAP) },
+                onOpenAiSettings = { navController.navigate(Routes.AI_SETTINGS) },
                 onLogout = {
                     viewModel.governanceLogout()
                     navController.navigate(Routes.ENTRY) {
@@ -113,6 +155,13 @@ fun GWNavHost() {
                 onApproved = { navController.navigate(Routes.GOV_PIPELINE) },
             )
         }
+        composable(Routes.GOV_PRIORITY_MAP) {
+            PriorityMapScreen(
+                viewModel = viewModel,
+                onBack = { navController.popBackStack() },
+                onOpenSite = { captureId -> navController.navigate(Routes.govPrioritySite(captureId)) },
+            )
+        }
         composable(Routes.GOV_PIPELINE) {
             GovernancePipelineScreen(
                 viewModel = viewModel,
@@ -129,6 +178,11 @@ fun GWNavHost() {
                 interventionId = backStackEntry.arguments?.getLong("interventionId") ?: 0L,
                 onBack = { navController.popBackStack() },
             )
+        }
+        }
+
+        if (mode != null) {
+            ModeStatusBar(mode = mode, recordsOnDevice = captures.size)
         }
     }
 }

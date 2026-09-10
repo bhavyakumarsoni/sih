@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import com.geowatershed.app.data.GeoWatershedViewModel
 import com.geowatershed.app.data.model.InterventionStage
 import com.geowatershed.app.ui.components.PriorityMap
+import com.geowatershed.app.ui.components.PriorityZoneLegend
 import com.geowatershed.app.ui.components.SectionLabel
 import com.geowatershed.app.ui.components.SeverityPill
 import com.geowatershed.app.ui.components.PriorityLevel
@@ -40,6 +41,8 @@ fun GovernanceDashboardScreen(
     viewModel: GeoWatershedViewModel,
     onOpenSite: (Long) -> Unit,
     onOpenPipeline: () -> Unit,
+    onOpenMap: () -> Unit,
+    onOpenAiSettings: () -> Unit,
     onLogout: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -53,7 +56,8 @@ fun GovernanceDashboardScreen(
     }
     val completed = interventions.count { InterventionStage.valueOf(it.stage) == InterventionStage.Completed }
     val pending = interventions.size - completed
-    val pins = captures.mapNotNull { it.toMapPin() }
+    val pins = captures.mapNotNull { it.toMapPin(interventions) }
+    val zoneCounts = pins.groupingBy { it.zone }.eachCount()
     val byLevel = captures.groupingBy { priorityLevelFor(it.priorityScore) }.eachCount()
 
     Column(modifier = modifier.fillMaxSize().background(GWColors.NeutralBg)) {
@@ -96,10 +100,13 @@ fun GovernanceDashboardScreen(
                 SectionLabel("PRIORITY MAP")
                 PriorityMap(
                     pins = pins,
-                    onPinTap = { captureId -> onOpenSite(captureId) },
+                    height = 240.dp,
+                    interactive = false,
+                    onSurfaceTap = onOpenMap,
                 )
+                PriorityZoneLegend(counts = zoneCounts)
                 Text(
-                    "Live OpenStreetMap · tap a pin to open its site analysis",
+                    "Live OpenStreetMap · tap the map to open the full priority map",
                     style = GWType.meta,
                     color = GWColors.Ink500,
                 )
@@ -148,6 +155,26 @@ fun GovernanceDashboardScreen(
                 Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
                     SectionLabel("INTERVENTION PIPELINE")
                     Text("$completed completed · $pending pending", style = GWType.body, color = GWColors.Ink900)
+                }
+                Text("OPEN →", style = GWType.buttonLabelMedium, color = GWColors.Green700)
+            }
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(GWColors.NeutralSurface, RoundedCornerShape(16.dp))
+                    .border(1.dp, GWColors.NeutralBorder, RoundedCornerShape(16.dp))
+                    .clickable(onClick = onOpenAiSettings)
+                    .padding(18.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                    SectionLabel("AI ASSIST · EXPERIMENTAL")
+                    Text(
+                        if (viewModel.aiSettings.isConfigured) "Configured on this device" else "Not configured",
+                        style = GWType.body,
+                        color = GWColors.Ink900,
+                    )
                 }
                 Text("OPEN →", style = GWType.buttonLabelMedium, color = GWColors.Green700)
             }

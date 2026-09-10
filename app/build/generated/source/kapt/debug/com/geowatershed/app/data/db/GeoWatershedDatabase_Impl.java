@@ -36,15 +36,15 @@ public final class GeoWatershedDatabase_Impl extends GeoWatershedDatabase {
   @Override
   @NonNull
   protected SupportSQLiteOpenHelper createOpenHelper(@NonNull final DatabaseConfiguration config) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(config, new RoomOpenHelper.Delegate(2) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(config, new RoomOpenHelper.Delegate(3) {
       @Override
       public void createAllTables(@NonNull final SupportSQLiteDatabase db) {
-        db.execSQL("CREATE TABLE IF NOT EXISTS `captures` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `siteCode` TEXT NOT NULL, `timestamp` INTEGER NOT NULL, `observationType` TEXT NOT NULL, `description` TEXT NOT NULL, `latitude` REAL, `longitude` REAL, `accuracyMeters` REAL, `photoPath` TEXT, `priorityScore` INTEGER NOT NULL)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS `captures` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `siteCode` TEXT NOT NULL, `timestamp` INTEGER NOT NULL, `observationType` TEXT NOT NULL, `description` TEXT NOT NULL, `latitude` REAL, `longitude` REAL, `accuracyMeters` REAL, `photoPath` TEXT, `priorityScore` INTEGER NOT NULL, `aiStatus` TEXT NOT NULL, `aiSuggestedType` TEXT, `aiCertainty` TEXT, `aiRationale` TEXT, `aiDecidedAt` INTEGER)");
         db.execSQL("CREATE TABLE IF NOT EXISTS `interventions` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `type` TEXT NOT NULL, `siteCode` TEXT NOT NULL, `siteDetail` TEXT NOT NULL, `latitude` REAL, `longitude` REAL, `accuracyMeters` REAL, `stage` TEXT NOT NULL, `createdAt` INTEGER NOT NULL, `sourceCaptureId` INTEGER, `verificationSubmitted` INTEGER NOT NULL)");
         db.execSQL("CREATE TABLE IF NOT EXISTS `photo_evidence` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `interventionId` INTEGER NOT NULL, `photoSet` TEXT NOT NULL, `photoPath` TEXT, `date` TEXT NOT NULL, `meta` TEXT NOT NULL, `createdAt` INTEGER NOT NULL, FOREIGN KEY(`interventionId`) REFERENCES `interventions`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )");
         db.execSQL("CREATE INDEX IF NOT EXISTS `index_photo_evidence_interventionId` ON `photo_evidence` (`interventionId`)");
         db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '16ef40d9de03c46a7015a8d85929cfcb')");
+        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f9d9b4129d4ffb79738ce1fae09875d7')");
       }
 
       @Override
@@ -96,7 +96,7 @@ public final class GeoWatershedDatabase_Impl extends GeoWatershedDatabase {
       @NonNull
       public RoomOpenHelper.ValidationResult onValidateSchema(
           @NonNull final SupportSQLiteDatabase db) {
-        final HashMap<String, TableInfo.Column> _columnsCaptures = new HashMap<String, TableInfo.Column>(10);
+        final HashMap<String, TableInfo.Column> _columnsCaptures = new HashMap<String, TableInfo.Column>(15);
         _columnsCaptures.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsCaptures.put("siteCode", new TableInfo.Column("siteCode", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsCaptures.put("timestamp", new TableInfo.Column("timestamp", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
@@ -107,6 +107,11 @@ public final class GeoWatershedDatabase_Impl extends GeoWatershedDatabase {
         _columnsCaptures.put("accuracyMeters", new TableInfo.Column("accuracyMeters", "REAL", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsCaptures.put("photoPath", new TableInfo.Column("photoPath", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsCaptures.put("priorityScore", new TableInfo.Column("priorityScore", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsCaptures.put("aiStatus", new TableInfo.Column("aiStatus", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsCaptures.put("aiSuggestedType", new TableInfo.Column("aiSuggestedType", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsCaptures.put("aiCertainty", new TableInfo.Column("aiCertainty", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsCaptures.put("aiRationale", new TableInfo.Column("aiRationale", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsCaptures.put("aiDecidedAt", new TableInfo.Column("aiDecidedAt", "INTEGER", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysCaptures = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesCaptures = new HashSet<TableInfo.Index>(0);
         final TableInfo _infoCaptures = new TableInfo("captures", _columnsCaptures, _foreignKeysCaptures, _indicesCaptures);
@@ -158,7 +163,7 @@ public final class GeoWatershedDatabase_Impl extends GeoWatershedDatabase {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "16ef40d9de03c46a7015a8d85929cfcb", "a8ab375f78ff263df0710572ead29668");
+    }, "f9d9b4129d4ffb79738ce1fae09875d7", "301b10139d6d24ff88a354c28a6bb66d");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(config.context).name(config.name).callback(_openCallback).build();
     final SupportSQLiteOpenHelper _helper = config.sqliteOpenHelperFactory.create(_sqliteConfig);
     return _helper;

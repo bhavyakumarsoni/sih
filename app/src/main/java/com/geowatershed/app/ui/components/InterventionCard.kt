@@ -34,6 +34,13 @@ fun InterventionCard(
     onAdvance: () -> Unit,
     onMonitoring: () -> Unit,
     modifier: Modifier = Modifier,
+    /**
+     * Whether the current surface may move this work through the pipeline.
+     * False in Field Mode: proposing work and recording evidence are field
+     * jobs, but approving it and declaring it complete are the officer's, and
+     * Field Mode has no login to establish who is doing either.
+     */
+    canAdvanceStage: Boolean = true,
 ) {
     val stage = InterventionStage.valueOf(intervention.stage)
     val isLast = stage.next == null
@@ -83,27 +90,35 @@ fun InterventionCard(
             Text(stepText, style = GWType.labelSmall.copy(fontSize = 11.sp, letterSpacing = 0.06.em), color = GWColors.Ink500)
         }
         Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+            val advanceEnabled = canAdvanceStage && !isLast
+            val advanceLabel = when {
+                !canAdvanceStage -> "Officer approval required"
+                isLast -> "Pipeline complete"
+                else -> "Advance Status"
+            }
             Row(
                 modifier = Modifier
                     .weight(1f)
                     .height(56.dp)
                     .background(
-                        if (isLast) GWColors.MutedRowBg else GWColors.NeutralBg,
+                        if (advanceEnabled) GWColors.NeutralBg else GWColors.MutedRowBg,
                         RoundedCornerShape(12.dp),
                     )
                     .border(
-                        if (isLast) 1.5.dp else 2.dp,
-                        if (isLast) GWColors.DividerHairline2 else GWColors.Green700,
+                        if (advanceEnabled) 2.dp else 1.5.dp,
+                        if (advanceEnabled) GWColors.Green700 else GWColors.DividerHairline2,
                         RoundedCornerShape(12.dp),
                     )
-                    .clickable(enabled = !isLast, onClick = onAdvance),
+                    .clickable(enabled = advanceEnabled, onClick = onAdvance),
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Text(
-                    if (isLast) "Pipeline complete" else "Advance Status",
-                    style = GWType.buttonLabelMedium.copy(fontWeight = if (isLast) FontWeight.Medium else FontWeight.SemiBold),
-                    color = if (isLast) GWColors.Ink300 else GWColors.Green700,
+                    advanceLabel,
+                    style = GWType.buttonLabelMedium.copy(
+                        fontWeight = if (advanceEnabled) FontWeight.SemiBold else FontWeight.Medium,
+                    ),
+                    color = if (advanceEnabled) GWColors.Green700 else GWColors.Ink300,
                     textAlign = TextAlign.Center,
                 )
             }
