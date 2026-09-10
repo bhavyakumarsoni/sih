@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- GPS pin, referencing the app's map-pin capture icon -->
+    <path
+        android:fillColor="#8FBBA6"
+        android:pathData="M54,28 C42.4,28 33,37.4 33,49 C33,65 54,86 54,86 C54,86 75,65 75,49 C75,37.4 65.6,28 54,28 Z" />
+    <path
+        android:fillColor="#14342A"
+        android:pathData="M54,40 C47.9,40 43,44.9 43,51 C43,57.1 47.9,62 54,62 C60.1,62 65,57.1 65,51 C65,44.9 60.1,40 54,40 Z" />
+    <!-- clay accent dot -->
+    <path
+        android:fillColor="#A9502B"
+        android:pathData="M54,46 C50.7,46 48,48.7 48,52 C48,55.3 50.7,58 54,58 C57.3,58 60,55.3 60,52 C60,48.7 57.3,46 54,46 Z" />
+</vector>

@@ -1,0 +1,46 @@
+[
+    {
+        "merged": "com.geowatershed.app-debug-68:/font_ibm_plex_sans_bold.ttf.flat",
+        "source": "com.geowatershed.app-main-70:/font/ibm_plex_sans_bold.ttf"
+    },
+    {
+        "merged": "com.geowatershed.app-debug-68:/font_ibm_plex_sans_regular.ttf.flat",
+        "source": "com.geowatershed.app-main-70:/font/ibm_plex_sans_regular.ttf"
+    },
+    {
+        "merged": "com.geowatershed.app-debug-68:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.geowatershed.app-main-70:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.geowatershed.app-debug-68:/font_ibm_plex_mono_medium.ttf.flat",
+        "source": "com.geowatershed.app-main-70:/font/ibm_plex_mono_medium.ttf"
+    },
+    {
+        "merged": "com.geowatershed.app-debug-68:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.geowatershed.app-main-70:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.geowatershed.app-debug-68:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.geowatershed.app-main-70:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.geowatershed.app-debug-68:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.geowatershed.app-main-70:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.geowatershed.app-debug-68:/font_ibm_plex_mono_semibold.ttf.flat",
+        "source": "com.geowatershed.app-main-70:/font/ibm_plex_mono_semibold.ttf"
+    },
+    {
+        "merged": "com.geowatershed.app-debug-68:/font_ibm_plex_mono_regular.ttf.flat",
+        "source": "com.geowatershed.app-main-70:/font/ibm_plex_mono_regular.ttf"
+    },
+    {
+        "merged": "com.geowatershed.app-debug-68:/font_ibm_plex_sans_semibold.ttf.flat",
+        "source": "com.geowatershed.app-main-70:/font/ibm_plex_sans_semibold.ttf"
+    },
+    {
+        "merged": "com.geowatershed.app-debug-68:/font_ibm_plex_sans_medium.ttf.flat",
+        "source": "com.geowatershed.app-main-70:/font/ibm_plex_sans_medium.ttf"
+    }
+]

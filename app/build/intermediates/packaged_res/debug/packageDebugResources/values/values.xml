@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_background">#14342A</color>
+    <color name="status_bar">#14342A</color>
+    <color name="window_background">#F4F1EA</color>
+    <string name="app_name">GeoWatershed</string>
+    <style name="Theme.GeoWatershed" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/window_background</item>
+        <item name="android:statusBarColor">@color/status_bar</item>
+    </style>
+</resources>
