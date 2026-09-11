@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:2:1-30:12
-INJECTED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:2:1-30:12
-INJECTED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:2:1-30:12
-INJECTED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:2:1-30:12
+ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:2:1-36:12
+INJECTED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:2:1-36:12
+INJECTED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:2:1-36:12
+INJECTED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:2:1-36:12
 MERGED from [androidx.camera:camera-video:1.3.4] /Users/bhavyakumarsoni/.gradle/caches/8.9/transforms/d9bd08f0677b97b54bba213427c2c494/transformed/camera-video-1.3.4/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.camera:camera-view:1.3.4] /Users/bhavyakumarsoni/.gradle/caches/8.9/transforms/c7b9092cca20e322a4888e5adb826f44/transformed/camera-view-1.3.4/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.camera:camera-lifecycle:1.3.4] /Users/bhavyakumarsoni/.gradle/caches/8.9/transforms/47eb8de4185c660e9b6459c3ce3ee965/transformed/camera-lifecycle-1.3.4/AndroidManifest.xml:2:1-7:12
@@ -122,8 +122,8 @@ ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManif
 	android:name
 		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:10:9-51
 application
-ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:13:5-28:19
-INJECTED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:13:5-28:19
+ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:19:5-34:19
+INJECTED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:19:5-34:19
 MERGED from [androidx.camera:camera-camera2:1.3.4] /Users/bhavyakumarsoni/.gradle/caches/8.9/transforms/7b659b321fe06228fd03e4efa1b7919e/transformed/camera-camera2-1.3.4/AndroidManifest.xml:23:5-34:19
 MERGED from [androidx.camera:camera-camera2:1.3.4] /Users/bhavyakumarsoni/.gradle/caches/8.9/transforms/7b659b321fe06228fd03e4efa1b7919e/transformed/camera-camera2-1.3.4/AndroidManifest.xml:23:5-34:19
 MERGED from [androidx.camera:camera-core:1.3.4] /Users/bhavyakumarsoni/.gradle/caches/8.9/transforms/0a0f5c4c38185f0511f5fe72fad211a3/transformed/camera-core-1.3.4/AndroidManifest.xml:23:5-34:19
@@ -157,33 +157,33 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/bhavyakumarsoni/.gra
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.13.1] /Users/bhavyakumarsoni/.gradle/caches/8.9/transforms/75ea9556da06a2ddba1460016a6e4412/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:18:9-35
+		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:24:9-35
 	android:label
-		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:16:9-41
+		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:22:9-41
 	android:icon
-		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:15:9-43
+		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:21:9-43
 	android:allowBackup
-		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:14:9-35
+		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:20:9-36
 	android:theme
-		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:17:9-50
+		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:23:9-50
 activity#com.geowatershed.app.MainActivity
-ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:19:9-27:20
+ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:25:9-33:20
 	android:exported
-		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:21:13-36
+		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:27:13-36
 	android:theme
-		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:22:13-54
+		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:28:13-54
 	android:name
-		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:20:13-41
+		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:26:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:23:13-26:29
+ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:29:13-32:29
 action#android.intent.action.MAIN
-ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:24:17-69
+ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:30:17-69
 	android:name
-		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:24:25-66
+		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:30:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:25:17-77
+ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:31:17-77
 	android:name
-		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:25:27-74
+		ADDED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml:31:27-74
 uses-sdk
 INJECTED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/bhavyakumarsoni/Documents/GitHub/sih/app/src/main/AndroidManifest.xml

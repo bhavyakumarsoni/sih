@@ -2,7 +2,6 @@ package com.geowatershed.app.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -42,7 +41,7 @@ fun InterventionCard(
      */
     canAdvanceStage: Boolean = true,
 ) {
-    val stage = InterventionStage.valueOf(intervention.stage)
+    val stage = InterventionStage.parse(intervention.stage)
     val isLast = stage.next == null
     val coordsText = formatCoords(intervention.latitude, intervention.longitude, intervention.accuracyMeters)
 
@@ -92,13 +91,23 @@ fun InterventionCard(
         Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
             val advanceEnabled = canAdvanceStage && !isLast
             val advanceLabel = when {
-                !canAdvanceStage -> "Officer approval required"
+                // Completion is a fact about the work; the role message is about
+                // what THIS surface may do next. When the pipeline is finished
+                // there is nothing left to approve, so the fact wins.
                 isLast -> "Pipeline complete"
+                !canAdvanceStage -> "Officer approval required"
                 else -> "Advance Status"
             }
+            val blockedByRole = !canAdvanceStage && !isLast
             Row(
                 modifier = Modifier
                     .weight(1f)
+                    .interactivePress(
+                        onClick = onAdvance,
+                        enabled = advanceEnabled || blockedByRole,
+                        isAuthorized = advanceEnabled,
+                        onClickLabel = advanceLabel,
+                    )
                     .height(56.dp)
                     .background(
                         if (advanceEnabled) GWColors.NeutralBg else GWColors.MutedRowBg,
@@ -108,8 +117,7 @@ fun InterventionCard(
                         if (advanceEnabled) 2.dp else 1.5.dp,
                         if (advanceEnabled) GWColors.Green700 else GWColors.DividerHairline2,
                         RoundedCornerShape(12.dp),
-                    )
-                    .clickable(enabled = advanceEnabled, onClick = onAdvance),
+                    ),
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically,
             ) {
@@ -125,10 +133,10 @@ fun InterventionCard(
             Row(
                 modifier = Modifier
                     .weight(1f)
+                    .interactivePress(onClick = onMonitoring, onClickLabel = "Monitoring")
                     .height(56.dp)
                     .background(GWColors.Clay100, RoundedCornerShape(12.dp))
-                    .border(1.5.dp, GWColors.ClayBorder, RoundedCornerShape(12.dp))
-                    .clickable(onClick = onMonitoring),
+                    .border(1.5.dp, GWColors.ClayBorder, RoundedCornerShape(12.dp)),
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically,
             ) {

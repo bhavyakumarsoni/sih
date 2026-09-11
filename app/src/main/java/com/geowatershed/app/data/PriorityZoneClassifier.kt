@@ -32,7 +32,7 @@ object PriorityZoneClassifier {
     fun zoneFor(capture: CaptureEntity, interventions: List<InterventionEntity>): PriorityZone {
         val furthestStage = interventions
             .filter { it.siteCode == capture.siteCode }
-            .mapNotNull { runCatching { InterventionStage.valueOf(it.stage) }.getOrNull() }
+            .map { InterventionStage.parse(it.stage) }
             .maxByOrNull { it.ordinal }
 
         return when (furthestStage) {

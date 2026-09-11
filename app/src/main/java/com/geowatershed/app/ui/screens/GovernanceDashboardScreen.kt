@@ -16,11 +16,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.geowatershed.app.data.GeoWatershedViewModel
 import com.geowatershed.app.data.model.InterventionStage
+import com.geowatershed.app.data.model.PriorityZone
 import com.geowatershed.app.ui.components.PriorityMap
 import com.geowatershed.app.ui.components.PriorityZoneLegend
 import com.geowatershed.app.ui.components.SectionLabel
@@ -50,14 +54,16 @@ fun GovernanceDashboardScreen(
     val interventions by viewModel.interventions.collectAsState()
     val highPriority = captures.count { it.priorityScore >= 70 }
     val stalled = interventions.count {
-        val stage = InterventionStage.valueOf(it.stage)
+        val stage = InterventionStage.parse(it.stage)
         stage.ordinal < InterventionStage.Completed.ordinal &&
             System.currentTimeMillis() - it.createdAt > 30L * 24 * 60 * 60 * 1000
     }
-    val completed = interventions.count { InterventionStage.valueOf(it.stage) == InterventionStage.Completed }
+    val completed = interventions.count { InterventionStage.parse(it.stage).isDone }
     val pending = interventions.size - completed
     val pins = captures.mapNotNull { it.toMapPin(interventions) }
     val zoneCounts = pins.groupingBy { it.zone }.eachCount()
+    var selectedZone by remember { mutableStateOf<PriorityZone?>(null) }
+    val visiblePins = selectedZone?.let { zone -> pins.filter { it.zone == zone } } ?: pins
     val byLevel = captures.groupingBy { priorityLevelFor(it.priorityScore) }.eachCount()
 
     Column(modifier = modifier.fillMaxSize().background(GWColors.NeutralBg)) {
@@ -99,14 +105,27 @@ fun GovernanceDashboardScreen(
             Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
                 SectionLabel("PRIORITY MAP")
                 PriorityMap(
-                    pins = pins,
+                    pins = visiblePins,
                     height = 240.dp,
                     interactive = false,
                     onSurfaceTap = onOpenMap,
+                    recenterKey = selectedZone,
                 )
-                PriorityZoneLegend(counts = zoneCounts)
+                PriorityZoneLegend(
+                    counts = zoneCounts,
+                    selected = selectedZone,
+                    onSelect = { selectedZone = it },
+                )
                 Text(
-                    "Live OpenStreetMap · tap the map to open the full priority map",
+                    when {
+                        selectedZone == null ->
+                            "Tap a zone to show only those sites · tap the map to open it full screen"
+                        visiblePins.isEmpty() ->
+                            "No sites are ${selectedZone?.label?.lowercase()} yet — tap the zone again to show all"
+                        else ->
+                            "Showing ${visiblePins.size} ${selectedZone?.label?.lowercase()} " +
+                                "site${if (visiblePins.size == 1) "" else "s"} · tap the zone again to show all"
+                    },
                     style = GWType.meta,
                     color = GWColors.Ink500,
                 )

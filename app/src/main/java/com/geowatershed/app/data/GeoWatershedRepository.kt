@@ -133,7 +133,7 @@ class GeoWatershedRepository(private val db: GeoWatershedDatabase) {
     }
 
     suspend fun advanceIntervention(intervention: InterventionEntity) {
-        val current = InterventionStage.valueOf(intervention.stage)
+        val current = InterventionStage.parse(intervention.stage)
         val next = current.next ?: return
         db.interventionDao().update(intervention.copy(stage = next.name))
     }

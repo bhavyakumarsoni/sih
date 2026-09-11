@@ -2,7 +2,6 @@ package com.geowatershed.app.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -36,9 +35,9 @@ fun BigActionButton(
 ) {
     Row(
         modifier = modifier
+            .interactivePress(onClick = onClick, onClickLabel = title)
             .fillMaxWidth()
             .height(68.dp)
-            .clickable(onClick = onClick)
             .then(
                 if (filled) {
                     Modifier.background(GWColors.Clay600, RoundedCornerShape(14.dp))
@@ -78,11 +77,11 @@ fun PrimaryCtaButton(
 ) {
     Row(
         modifier = modifier
+            .interactivePress(onClick = onClick, enabled = enabled, onClickLabel = label)
             .fillMaxWidth()
             .height(height)
             .background(if (enabled) background else GWColors.ProgressTrack, RoundedCornerShape(cornerRadius))
-            .then(if (enabled) Modifier else Modifier.border(1.dp, GWColors.DividerHairline3, RoundedCornerShape(cornerRadius)))
-            .clickable(enabled = enabled, onClick = onClick),
+            .then(if (enabled) Modifier else Modifier.border(1.dp, GWColors.DividerHairline3, RoundedCornerShape(cornerRadius))),
         horizontalArrangement = Arrangement.spacedBy(12.dp, Alignment.CenterHorizontally),
         verticalAlignment = Alignment.CenterVertically,
     ) {

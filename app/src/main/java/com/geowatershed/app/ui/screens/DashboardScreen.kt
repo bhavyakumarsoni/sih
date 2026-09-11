@@ -2,6 +2,7 @@ package com.geowatershed.app.ui.screens
 
 import android.Manifest
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -18,7 +19,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -50,12 +53,12 @@ fun DashboardScreen(
     val captures by viewModel.captures.collectAsState()
     val interventions by viewModel.interventions.collectAsState()
     val highPrioritySites = captures.count { it.priorityScore >= 70 }
-    val interventionsCompleted = interventions.count {
-        InterventionStage.valueOf(it.stage).ordinal >= InterventionStage.Completed.ordinal
-    }
+    val interventionsCompleted = interventions.count { InterventionStage.parse(it.stage).isDone }
     val pins = remember(captures, interventions) { captures.mapNotNull { it.toMapPin(interventions) } }
     val zoneCounts = remember(pins) { pins.groupingBy { it.zone }.eachCount() }
     val unplotted = captures.size - pins.size
+    var selectedZone by remember { mutableStateOf<PriorityZone?>(null) }
+    val visiblePins = selectedZone?.let { zone -> pins.filter { it.zone == zone } } ?: pins
 
     // The header used to hardcode "GPS ON", which claimed a fix the app might
     // not have. Report what is actually true instead.
@@ -85,22 +88,33 @@ fun DashboardScreen(
             Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
                 SectionLabel("PRIORITY MAP")
                 PriorityMap(
-                    pins = pins,
+                    pins = visiblePins,
                     height = 200.dp,
                     interactive = false,
                     onSurfaceTap = onOpenMap,
+                    recenterKey = selectedZone,
                 )
                 Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                     PriorityZone.entries.forEach { zone ->
-                        ZoneTally(zone = zone, count = zoneCounts[zone] ?: 0)
+                        ZoneTally(
+                            zone = zone,
+                            count = zoneCounts[zone] ?: 0,
+                            selected = selectedZone == zone,
+                            onClick = { selectedZone = if (selectedZone == zone) null else zone },
+                        )
                     }
                 }
                 Text(
-                    if (unplotted > 0) {
-                        "Tap to open the full map · $unplotted capture${if (unplotted == 1) "" else "s"} " +
-                            "have no GPS fix and are not plotted"
-                    } else {
-                        "Tap to open the full priority map"
+                    when {
+                        selectedZone != null && visiblePins.isEmpty() ->
+                            "No sites are ${selectedZone?.label?.lowercase()} yet — tap the colour again to show all"
+                        selectedZone != null ->
+                            "Showing ${visiblePins.size} ${selectedZone?.label?.lowercase()} " +
+                                "site${if (visiblePins.size == 1) "" else "s"} · tap the colour again to show all"
+                        unplotted > 0 ->
+                            "Tap a colour to filter · $unplotted capture${if (unplotted == 1) "" else "s"} " +
+                                "have no GPS fix and are not plotted"
+                        else -> "Tap a colour to filter · tap the map to open it full screen"
                     },
                     style = GWType.meta,
                     color = GWColors.Ink500,
@@ -190,10 +204,14 @@ private fun ListGlyph() {
 }
 
 @Composable
-private fun ZoneTally(zone: PriorityZone, count: Int) {
+private fun ZoneTally(zone: PriorityZone, count: Int, selected: Boolean, onClick: () -> Unit) {
     Column(
         modifier = Modifier
             .background(zone.color, RoundedCornerShape(8.dp))
+            .then(
+                if (selected) Modifier.border(2.dp, GWColors.Ink900, RoundedCornerShape(8.dp)) else Modifier,
+            )
+            .clickable(onClick = onClick)
             .padding(horizontal = 9.dp, vertical = 7.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(3.dp),

@@ -1,0 +1,60 @@
+name: geowatershed
+description: >-
+  Offline-first watershed field data collection and priority triage.
+  SIH 2026 — Ministry of Rural Development, Dept. of Land Resources.
+publish_to: "none"
+version: 0.1.0
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Local persistence — the Room equivalent. Everything works offline.
+  sqflite: ^2.3.3
+  path: ^1.9.0
+  path_provider: ^2.1.4
+
+  # Device capture — replaces CameraX and the Fused Location Provider.
+  camera: ^0.11.0+2
+  geolocator: ^12.0.0
+  geocoding: ^3.0.0
+
+  # Map. flutter_map draws OpenStreetMap tiles with no API key and no
+  # billing account, which is why osmdroid was chosen on the Kotlin side.
+  flutter_map: ^7.0.2
+  latlong2: ^0.9.1
+
+  # Navigation, AI assist, settings.
+  go_router: ^14.2.7
+  http: ^1.2.2
+  shared_preferences: ^2.3.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  fonts:
+    - family: IBMPlexSans
+      fonts:
+        - asset: assets/fonts/ibm_plex_sans_regular.ttf
+          weight: 400
+        - asset: assets/fonts/ibm_plex_sans_medium.ttf
+          weight: 500
+        - asset: assets/fonts/ibm_plex_sans_semibold.ttf
+          weight: 600
+        - asset: assets/fonts/ibm_plex_sans_bold.ttf
+          weight: 700
+    - family: IBMPlexMono
+      fonts:
+        - asset: assets/fonts/ibm_plex_mono_regular.ttf
+          weight: 400
+        - asset: assets/fonts/ibm_plex_mono_medium.ttf
+          weight: 500
+        - asset: assets/fonts/ibm_plex_mono_semibold.ttf
+          weight: 600

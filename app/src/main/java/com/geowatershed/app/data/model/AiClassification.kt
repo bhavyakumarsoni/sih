@@ -28,6 +28,16 @@ enum class AiStatus {
 
     /** A human disagreed. The suggestion is kept for audit, not applied. */
     Rejected,
+    ;
+
+    companion object {
+        /**
+         * Reads a status from a stored string without throwing. An unreadable
+         * value falls back to [NotRequested], so a bad record can never
+         * present itself as a human-confirmed result.
+         */
+        fun parse(raw: String?): AiStatus = entries.firstOrNull { it.name == raw } ?: NotRequested
+    }
 }
 
 /**

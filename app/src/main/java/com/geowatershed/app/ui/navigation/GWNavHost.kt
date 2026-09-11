@@ -1,10 +1,14 @@
 package com.geowatershed.app.ui.navigation
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
@@ -15,6 +19,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.geowatershed.app.data.GeoWatershedViewModel
 import com.geowatershed.app.ui.components.AppMode
+import com.geowatershed.app.ui.components.LaunchSequence
 import com.geowatershed.app.ui.components.ModeStatusBar
 import com.geowatershed.app.ui.screens.AiSettingsScreen
 import com.geowatershed.app.ui.screens.CaptureScreen
@@ -34,6 +39,7 @@ fun GWNavHost() {
     val navController = rememberNavController()
     val viewModel: GeoWatershedViewModel = viewModel()
     val captures by viewModel.captures.collectAsState()
+    var showLaunchSequence by remember { mutableStateOf(true) }
 
     // The mode indicator is driven by the live route rather than by a flag set
     // at login, so it cannot drift out of step with where the user actually is.
@@ -44,6 +50,7 @@ fun GWNavHost() {
         else -> AppMode.Field
     }
 
+    Box(modifier = Modifier.fillMaxSize()) {
     Column(modifier = Modifier.fillMaxSize()) {
     NavHost(
         navController = navController,
@@ -184,5 +191,10 @@ fun GWNavHost() {
         if (mode != null) {
             ModeStatusBar(mode = mode, recordsOnDevice = captures.size)
         }
+    }
+
+    if (showLaunchSequence) {
+        LaunchSequence(onFinished = { showLaunchSequence = false })
+    }
     }
 }

@@ -115,6 +115,13 @@ fun PriorityMap(
     interactive: Boolean = true,
     onPinTap: (Long) -> Unit = {},
     onSurfaceTap: (() -> Unit)? = null,
+    /**
+     * Change this to make the map re-frame itself on the current [pins] —
+     * pass the active zone filter, for example. While it stays the same the
+     * map is left alone, so a user panning an interactive map is never
+     * yanked back to centre.
+     */
+    recenterKey: Any? = null,
 ) {
     val context = LocalContext.current
     remember {
@@ -125,10 +132,12 @@ fun PriorityMap(
         true
     }
 
-    // Centre once, on the first frame that actually has pins. Room delivers
-    // captures asynchronously, so centring only in `factory` would leave the
-    // map parked on the fallback coordinate forever.
-    var hasCentred by remember { mutableStateOf(false) }
+    // Centre on the first frame that actually has pins (Room delivers captures
+    // asynchronously, so centring only in `factory` would leave the map parked
+    // on the fallback coordinate forever), and again whenever [recenterKey]
+    // changes — that is what makes selecting a zone point the map at it.
+    val notCentredYet = remember { Any() }
+    var centredFor by remember { mutableStateOf<Any?>(notCentredYet) }
 
     Box(
         modifier = modifier
@@ -163,12 +172,12 @@ fun PriorityMap(
                     }
                     mapView.overlays.add(marker)
                 }
-                if (!hasCentred && pins.isNotEmpty()) {
-                    mapView.controller.setZoom(13.0)
+                if (pins.isNotEmpty() && centredFor != recenterKey) {
+                    mapView.controller.setZoom(if (pins.size == 1) 15.0 else 13.0)
                     mapView.controller.setCenter(
                         GeoPoint(pins.map { it.latitude }.average(), pins.map { it.longitude }.average()),
                     )
-                    hasCentred = true
+                    centredFor = recenterKey
                 }
                 mapView.invalidate()
             },
@@ -202,7 +211,7 @@ fun PriorityZoneLegend(
                 modifier = Modifier
                     .fillMaxWidth()
                     .clip(RoundedCornerShape(9.dp))
-                    .background(if (isSelected) GWColors.SelectedRowBg else GWColors.NeutralSurface)
+                    .background(if (isSelected) zone.color.copy(alpha = 0.14f) else GWColors.NeutralSurface)
                     .then(
                         if (onSelect == null) {
                             Modifier
@@ -214,7 +223,11 @@ fun PriorityZoneLegend(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(11.dp),
             ) {
-                Box(modifier = Modifier.size(15.dp).background(zone.color, CircleShape))
+                Box(
+                    modifier = Modifier
+                        .size(if (isSelected) 19.dp else 15.dp)
+                        .background(zone.color, CircleShape),
+                )
                 Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
                     Text(zone.label, style = GWType.bodyBold.copy(fontSize = 15.sp), color = GWColors.Ink900)
                     Text(zone.sub, style = GWType.meta, color = GWColors.Ink400)

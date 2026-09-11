@@ -56,7 +56,7 @@ fun EntryScreen(
 
     val highPriority = captures.count { it.priorityScore >= 70 }
     val stalled = interventions.count {
-        val stage = InterventionStage.valueOf(it.stage)
+        val stage = InterventionStage.parse(it.stage)
         stage.ordinal < InterventionStage.Completed.ordinal &&
             System.currentTimeMillis() - it.createdAt > 30L * 24 * 60 * 60 * 1000
     }

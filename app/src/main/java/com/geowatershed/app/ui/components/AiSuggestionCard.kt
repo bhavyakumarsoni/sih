@@ -50,10 +50,10 @@ fun AiSuggestionCard(
     onOpenSettings: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val status = runCatching { AiStatus.valueOf(capture.aiStatus) }.getOrDefault(AiStatus.NotRequested)
+    val status = AiStatus.parse(capture.aiStatus)
     val suggestedLabel = capture.aiSuggestedType
         ?.let { raw -> ObservationType.entries.firstOrNull { it.name == raw }?.label ?: raw }
-    val certainty = capture.aiCertainty?.let { AiCertainty.valueOf(it) }
+    val certainty = capture.aiCertainty?.let { AiCertainty.parse(it) }
 
     Column(
         modifier = modifier

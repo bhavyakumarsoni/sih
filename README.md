@@ -12,6 +12,28 @@ approvals).
 
 ---
 
+## Demo logins
+
+**Field Mode needs no login.** Governance Mode does:
+
+| Officer ID | Password | Signs in as |
+|---|---|---|
+| `bdo.kolar` | `kolar@2026` | BDO Kolar |
+| `officer1` | `chinnahalli1` | Field Officer · Chinnahalli |
+
+The officer ID is case-insensitive and trimmed; the password is exact-match.
+There is deliberately no "create account" anywhere in the app — credentials are
+issued out of band by the BDO office.
+
+These live in `data/GovernanceCredentials.kt` and are compiled into the APK, so
+writing them down here changes nothing about their exposure: anyone holding the
+APK can read them with `strings` in seconds. That is a reasonable hackathon
+stub and it is recorded honestly under Known gaps below. It stops being
+reasonable the moment this app has a real backend — at which point these move
+server-side and this section gets deleted.
+
+---
+
 ## Build status
 
 `./gradlew assembleDebug` → **BUILD SUCCESSFUL** (10 Sep 2026), producing a

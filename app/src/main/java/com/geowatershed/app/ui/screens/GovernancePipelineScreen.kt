@@ -35,7 +35,7 @@ import com.geowatershed.app.ui.theme.GWType
 private const val STALLED_MS = 30L * 24 * 60 * 60 * 1000
 
 private fun InterventionEntity.isStalled(): Boolean {
-    val stage = InterventionStage.valueOf(stage)
+    val stage = InterventionStage.parse(stage)
     return stage.ordinal < InterventionStage.Completed.ordinal &&
         System.currentTimeMillis() - createdAt > STALLED_MS
 }
@@ -53,11 +53,11 @@ fun GovernancePipelineScreen(
     modifier: Modifier = Modifier,
 ) {
     val interventions by viewModel.interventions.collectAsState()
-    val completed = interventions.count { InterventionStage.valueOf(it.stage) == InterventionStage.Completed }
+    val completed = interventions.count { InterventionStage.parse(it.stage).isDone }
     val pending = interventions.size - completed
     val completionFraction = if (interventions.isEmpty()) 0f else completed / interventions.size.toFloat()
     val stageCounts = InterventionStage.entries.associateWith { stage ->
-        interventions.count { InterventionStage.valueOf(it.stage) == stage }
+        interventions.count { InterventionStage.parse(it.stage) == stage }
     }
     val sorted = rememberSortedInterventions(interventions)
 

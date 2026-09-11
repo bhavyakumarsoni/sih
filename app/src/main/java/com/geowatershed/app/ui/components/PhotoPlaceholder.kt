@@ -57,7 +57,7 @@ fun StripedPlaceholder(stripeColor: Color, backgroundColor: Color, modifier: Mod
 
 @Composable
 fun PhotoSlotCard(photo: PhotoEvidenceEntity, modifier: Modifier = Modifier) {
-    val set = remember(photo.photoSet) { PhotoSet.valueOf(photo.photoSet) }
+    val set = remember(photo.photoSet) { PhotoSet.parse(photo.photoSet) }
     val isBefore = set == PhotoSet.Before
     val borderColor = if (isBefore) GWColors.NeutralBorder else GWColors.GreenBorder
     val dividerColor = if (isBefore) GWColors.DividerHairline2 else GWColors.AfterDividerHairline

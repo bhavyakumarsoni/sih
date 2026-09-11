@@ -48,8 +48,8 @@ fun MonitoringScreen(
 ) {
     val intervention by viewModel.interventionFlow(interventionId).collectAsState(initial = null)
     val photos by viewModel.photosFor(interventionId).collectAsState(initial = emptyList())
-    val beforePhotos = remember(photos) { photos.filter { PhotoSet.valueOf(it.photoSet) == PhotoSet.Before } }
-    val afterPhotos = remember(photos) { photos.filter { PhotoSet.valueOf(it.photoSet) == PhotoSet.After } }
+    val beforePhotos = remember(photos) { photos.filter { PhotoSet.parse(it.photoSet) == PhotoSet.Before } }
+    val afterPhotos = remember(photos) { photos.filter { PhotoSet.parse(it.photoSet) == PhotoSet.After } }
     val beforeCount = beforePhotos.size
     val afterCount = afterPhotos.size
     val total = beforeCount + afterCount

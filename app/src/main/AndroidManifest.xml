@@ -10,8 +10,14 @@
         android:name="android.hardware.camera.any"
         android:required="false" />
 
+    <!--
+      Backup is OFF deliberately. With it on, `adb backup` can pull this app's
+      whole sandbox off many devices: the Room database of field captures AND
+      the AI API key, which lives in plain SharedPreferences. Nothing here
+      should leave the device through a backup channel.
+    -->
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.GeoWatershed"

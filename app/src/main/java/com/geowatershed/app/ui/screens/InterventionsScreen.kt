@@ -45,7 +45,7 @@ private enum class InterventionFilter(val label: String) {
         All -> true
         Proposed -> stage == InterventionStage.Proposed
         Active -> stage == InterventionStage.Approved || stage == InterventionStage.UnderConstruction
-        Done -> stage == InterventionStage.Completed || stage == InterventionStage.Monitoring
+        Done -> stage.isDone
     }
 }
 
@@ -59,7 +59,7 @@ fun InterventionsScreen(
     val interventions by viewModel.interventions.collectAsState()
     var filter by remember { mutableStateOf(InterventionFilter.All) }
     val visible = remember(interventions, filter) {
-        interventions.filter { filter.matches(InterventionStage.valueOf(it.stage)) }
+        interventions.filter { filter.matches(InterventionStage.parse(it.stage)) }
     }
 
     Column(modifier = modifier.fillMaxSize().background(GWColors.NeutralBg)) {
@@ -70,7 +70,7 @@ fun InterventionsScreen(
         )
         FilterChipRow(
             counts = InterventionFilter.entries.associateWith { f ->
-                interventions.count { f.matches(InterventionStage.valueOf(it.stage)) }
+                interventions.count { f.matches(InterventionStage.parse(it.stage)) }
             },
             selected = filter,
             onSelect = { filter = it },
